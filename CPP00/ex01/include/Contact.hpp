@@ -13,7 +13,7 @@
 #ifndef CONTACT_HPP
 #define CONTACT_HPP
 
-# include "string"
+# include <string>
 
 class Contact
 {
@@ -25,6 +25,7 @@ class Contact
 		std::string	nickname;
 		std::string	phone_number;
 		void		SetDarkestSecret(std::string);
+		std::string	GetDarkestSecret(void);
 };
 
 #endif

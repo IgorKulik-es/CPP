@@ -1,34 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
+/*   main.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ikulik <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/29 13:04:51 by ikulik            #+#    #+#             */
-/*   Updated: 2025/07/31 17:23:13 by ikulik           ###   ########.fr       */
+/*   Created: 2025/07/31 22:11:57 by ikulik            #+#    #+#             */
+/*   Updated: 2025/07/31 22:11:57 by ikulik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_HPP
-#define PHONEBOOK_HPP
+#ifndef MAIN_HPP
+# define MAIN_HPP
 
-# include "Contact.hpp"
-# define CONT_MAX 8
-# define WIDTH 10
+# include "PhoneBook.hpp"
+# include <iostream>
+# include <cctype>
+# include <algorithm>
+# include <iomanip> 
 
-class PhoneBook
-{
-	private:
-		Contact	contacts[CONT_MAX];
-	public:
-		int			num_conts;
-		void		AddContact(Contact new_cont);
-		Contact*	GetContact(int index);
-		void		PrintContact(int index);
-};
-
-void	PrintHistoryLine(Contact *cont, int index);
-void	ScanContactData(PhoneBook *book);
+void	SearchContact(PhoneBook *book);
 
 #endif

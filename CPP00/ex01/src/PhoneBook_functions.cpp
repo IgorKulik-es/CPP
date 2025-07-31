@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/PhoneBook.hpp"
+#include "../include/main.hpp"
 
 void	PhoneBook::AddContact(Contact new_cont)
 {
@@ -32,27 +32,76 @@ Contact*	PhoneBook::GetContact(int index)
 	return &(contacts[index]);
 }
 
-void	PrintOneData(std::string str)
+void	PhoneBook::PrintContact(int index)
 {
-	int	len;
+	std::cout << "Name:\t\t" << contacts[index].name << std::endl;
+	std::cout << "Last name:\t" << contacts[index].last_name << std::endl;
+	std::cout << "Nickname:\t" << contacts[index].nickname << std::endl;
+	std::cout << "Phone number:\t" << contacts[index].phone_number << std::endl;
+	std::cout << "Darkest Secret:\t" << contacts[index].GetDarkestSecret() << std::endl;
+}
 
-	len = str.length();
-	if (len >= WIDTH)
-		std::cout << str.substr(WIDTH - 1) << ".";
+void	PrintOneItem(std::string str)
+{
+	if (str.length() >= WIDTH)
+		std::cout << str.substr(0, WIDTH - 1) << ".";
 	else
-	{
-		std::cout << std::string(WIDTH - len, ' ');
-		std::cout << str;
-	}
+		std::cout << std::setfill(' ') << std::setw(WIDTH) << str;
 }
 
 void	PrintHistoryLine(Contact *cont, int index)
 {
 	std::cout << index << " |";
-	PrintOneData(cont->name);
+	PrintOneItem(cont->name);
 	std::cout << "|";
-	PrintOneData(cont->last_name);
+	PrintOneItem(cont->last_name);
 	std::cout << "|";
-	PrintOneData(cont->nickname);
+	PrintOneItem(cont->nickname);
 	std::cout << std::endl;
+}
+
+void	ScanContactData(PhoneBook *book)
+{	
+	Contact		cont;
+	std::string	temp;
+
+	std::cout << "Enter contact's name: ";
+	std::cin >> cont.name;
+	std::cout << "Enter contact's last name: ";
+	std::cin >> cont.last_name;
+	std::cout << "Enter contact's nickname: ";
+	std::cin >> cont.nickname;
+	std::cout << "Enter contact's phone number: ";
+	std::cin >> cont.phone_number;
+	std::cout << "Enter contact's darkest secret: ";
+	std::cin >> temp;
+	cont.SetDarkestSecret(temp);
+	book->AddContact(cont);
+}
+
+void	SearchContact(PhoneBook *book)
+{
+	int			index;
+	std::string	input;
+	
+	for (int i = 0; i < book->num_conts; i++)
+		PrintHistoryLine(book->GetContact(i), i);
+	std::cout << "Input contact index: ";
+	std::cin >> input;
+	for (int j = 0; input[j]; j++)
+	{
+		if (std::isdigit(input[j]) == 0)
+		{
+			std::cerr << "Invalid index!" << std::endl;
+			return ;
+		}
+	}
+	index = std::atoi(input.c_str());
+	std::cout << index << std::endl;
+	if (index >= 0 && index < book->num_conts)
+	{
+		book->PrintContact(index);
+		return ;
+	}
+	std::cerr << "Invalid index!" << std::endl;
 }

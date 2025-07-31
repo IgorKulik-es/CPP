@@ -24,7 +24,7 @@ SRCS		= $(MAINSRC)
 
 OBJS		= $(SRCS:$(SRCSDIR)/%.cpp=$(OBJDIR)/%.o)
 
-CFLAGS		= -Wall -Wextra -Werror -g3
+CFLAGS		= -Wall -Wextra -Werror -g3 -std=c++98
 INCLUDES	= -I$(INCLUDE)
 CC			= g++
 

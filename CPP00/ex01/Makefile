@@ -12,7 +12,7 @@
 
 NAME		= PhoneBook
 
-MAIN		= Contact_functions.cpp PhoneBook_functions.cpp
+MAIN		= Contact_functions.cpp PhoneBook_functions.cpp Main.cpp
 
 MAINDIR		= src
 MAINSRC		= $(addprefix $(MAINDIR)/, $(MAIN))
