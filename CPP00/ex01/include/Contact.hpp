@@ -6,7 +6,7 @@
 /*   By: ikulik <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 13:04:51 by ikulik            #+#    #+#             */
-/*   Updated: 2025/07/31 17:06:37 by ikulik           ###   ########.fr       */
+/*   Updated: 2025/08/01 13:18:54 by ikulik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ class Contact
 		std::string	phone_number;
 		void		SetDarkestSecret(std::string);
 		std::string	GetDarkestSecret(void);
+		void		CopyContact(Contact *src);
 };
 
 #endif

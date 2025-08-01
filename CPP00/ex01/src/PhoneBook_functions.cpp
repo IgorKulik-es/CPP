@@ -6,24 +6,30 @@
 /*   By: ikulik <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 12:58:49 by ikulik            #+#    #+#             */
-/*   Updated: 2025/07/31 17:22:41 by ikulik           ###   ########.fr       */
+/*   Updated: 2025/08/01 13:38:55 by ikulik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/main.hpp"
 
-void	PhoneBook::AddContact(Contact new_cont)
+PhoneBook::PhoneBook()
+{
+	num_conts = 0;
+}
+
+
+void	PhoneBook::AddContact(Contact *new_cont)
 {
 	if (num_conts < CONT_MAX)
 	{
-		contacts[num_conts] = new_cont;
+		contacts[num_conts].CopyContact(new_cont);
 		num_conts++;
 	}
 	else
 	{
 		for (int i = 0; i < CONT_MAX - 1; i++)
 			contacts[i] = contacts[i + 1];
-		contacts[CONT_MAX - 1] = new_cont;
+		contacts[CONT_MAX - 1].CopyContact(new_cont);
 	}
 };
 
@@ -61,7 +67,7 @@ void	PrintHistoryLine(Contact *cont, int index)
 }
 
 void	ScanContactData(PhoneBook *book)
-{	
+{
 	Contact		cont;
 	std::string	temp;
 
@@ -76,14 +82,19 @@ void	ScanContactData(PhoneBook *book)
 	std::cout << "Enter contact's darkest secret: ";
 	std::cin >> temp;
 	cont.SetDarkestSecret(temp);
-	book->AddContact(cont);
+	book->AddContact(&cont);
 }
 
 void	SearchContact(PhoneBook *book)
 {
 	int			index;
 	std::string	input;
-	
+
+	if (book->num_conts == 0)
+	{
+		std::cerr << "Phonebook is empty!" << std::endl;
+		return ;
+	}
 	for (int i = 0; i < book->num_conts; i++)
 		PrintHistoryLine(book->GetContact(i), i);
 	std::cout << "Input contact index: ";
@@ -99,9 +110,7 @@ void	SearchContact(PhoneBook *book)
 	index = std::atoi(input.c_str());
 	std::cout << index << std::endl;
 	if (index >= 0 && index < book->num_conts)
-	{
 		book->PrintContact(index);
-		return ;
-	}
-	std::cerr << "Invalid index!" << std::endl;
+	else
+		std::cerr << "Invalid index!" << std::endl;
 }
