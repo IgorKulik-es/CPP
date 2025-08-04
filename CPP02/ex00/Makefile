@@ -10,9 +10,9 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= Account
+NAME		= Fixed
 
-MAIN		= Account.cpp tests.cpp
+MAIN		= Fixed.cpp main.cpp
 
 MAINDIR		= src
 MAINSRC		= $(addprefix $(MAINDIR)/, $(MAIN))
