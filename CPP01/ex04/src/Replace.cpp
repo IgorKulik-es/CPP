@@ -12,7 +12,7 @@
 
 #include "../include/Replace.hpp"
 
-int	chekc_files(int argc, char **argv, std::ifstream &infile, std::ofstream &outfile)
+int	check_files(int argc, char **argv, std::ifstream &infile, std::ofstream &outfile)
 {
 	std::string		file_name;
 	if (argc != 4)

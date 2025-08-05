@@ -1,23 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Replace.hpp                                        :+:      :+:    :+:   */
+/*   Point.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ikulik <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/02 14:43:26 by ikulik            #+#    #+#             */
-/*   Updated: 2025/08/02 14:43:26 by ikulik           ###   ########.fr       */
+/*   Created: 2025/08/05 13:29:25 by ikulik            #+#    #+#             */
+/*   Updated: 2025/08/05 13:29:25 by ikulik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../include/Point.hpp"
 
-#ifndef REPLACE_HPP
-#define REPLACE_HPP
+Point::Point()
+{
+	x = Fixed(0);
+}
+Point::Point( const Point& copy )
+{
+	this->x = copy.getX();
+}
+Point::~Point()
+{
+}
 
-#include <iostream>
-#include <fstream>
-
-int		check_files(int argc, char **argv, std::ifstream &infile, std::ofstream &outfile);
-void	ft_replace(std::ifstream &infile, std::ofstream &outfile, std::string find, std::string replace);
-
-#endif
+const Fixed	Point::getX( void )
+{
+	return this->x;
+}
+const Fixed	Point::getY( void )
+{
+	return this->y;
+}

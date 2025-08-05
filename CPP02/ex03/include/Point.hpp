@@ -1,23 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Replace.hpp                                        :+:      :+:    :+:   */
+/*   Point.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ikulik <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/02 14:43:26 by ikulik            #+#    #+#             */
-/*   Updated: 2025/08/02 14:43:26 by ikulik           ###   ########.fr       */
+/*   Created: 2025/08/05 13:24:57 by ikulik            #+#    #+#             */
+/*   Updated: 2025/08/05 13:24:57 by ikulik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef POINT_HPP
+#define POINT_HPP
 
-#ifndef REPLACE_HPP
-#define REPLACE_HPP
+#include "Fixed.hpp"
 
-#include <iostream>
-#include <fstream>
-
-int		check_files(int argc, char **argv, std::ifstream &infile, std::ofstream &outfile);
-void	ft_replace(std::ifstream &infile, std::ofstream &outfile, std::string find, std::string replace);
+class Point
+{
+	private:
+		Fixed const x;
+		Fixed const y;
+	public:
+		Point();
+		Point(const float x, const float y);
+		Point( const Point& copy );
+		~Point();
+		void	operator=(const Point& copy);
+		const Fixed	getX( void );
+		const Fixed	getY( void );
+};
 
 #endif
