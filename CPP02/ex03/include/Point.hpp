@@ -6,7 +6,7 @@
 /*   By: ikulik <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/05 13:24:57 by ikulik            #+#    #+#             */
-/*   Updated: 2025/08/05 13:24:57 by ikulik           ###   ########.fr       */
+/*   Updated: 2025/08/06 19:31:37 by ikulik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,10 @@ class Point
 		Point( const Point& copy );
 		~Point();
 		void	operator=(const Point& copy);
-		const Fixed	getX( void );
-		const Fixed	getY( void );
+		const Fixed	getX( void ) const;
+		const Fixed	getY( void ) const;
 };
+
+bool bsp( Point const a, Point const b, Point const c, Point const point);
 
 #endif

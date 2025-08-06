@@ -6,13 +6,13 @@
 #    By: ikulik <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/04 13:34:13 by vtrofyme          #+#    #+#              #
-#    Updated: 2025/08/01 13:13:45 by ikulik           ###   ########.fr        #
+#    Updated: 2025/08/06 19:31:51 by ikulik           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= Fixed
+NAME		= Point
 
-MAIN		= Fixed.cpp main.cpp
+MAIN		= Fixed.cpp main.cpp Point.cpp bsp.cpp
 
 MAINDIR		= src
 MAINSRC		= $(addprefix $(MAINDIR)/, $(MAIN))
