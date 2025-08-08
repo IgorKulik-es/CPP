@@ -6,13 +6,13 @@
 #    By: ikulik <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/04 13:34:13 by vtrofyme          #+#    #+#              #
-#    Updated: 2025/08/01 13:13:45 by ikulik           ###   ########.fr        #
+#    Updated: 2025/08/08 12:54:22 by ikulik           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		= PhoneBook
 
-MAIN		= Contact_functions.cpp PhoneBook_functions.cpp main.cpp
+MAIN		= Contact.cpp PhoneBook.cpp main.cpp
 
 MAINDIR		= src
 MAINSRC		= $(addprefix $(MAINDIR)/, $(MAIN))

@@ -1,24 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook_functions.cpp                            :+:      :+:    :+:   */
+/*   PhoneBook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ikulik <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 12:58:49 by ikulik            #+#    #+#             */
-/*   Updated: 2025/08/01 13:38:55 by ikulik           ###   ########.fr       */
+/*   Updated: 2025/08/08 12:52:19 by ikulik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/main.hpp"
 
-PhoneBook::PhoneBook()
+PhoneBook::PhoneBook() : num_conts(0)
 {
-	num_conts = 0;
 }
 
 
-void	PhoneBook::AddContact(Contact *new_cont)
+void	PhoneBook::AddContact( Contact *new_cont )
 {
 	if (num_conts < CONT_MAX)
 	{
@@ -33,17 +32,22 @@ void	PhoneBook::AddContact(Contact *new_cont)
 	}
 };
 
-Contact*	PhoneBook::GetContact(int index)
+Contact*	PhoneBook::GetContact( int index )
 {
 	return &(contacts[index]);
 }
 
-void	PhoneBook::PrintContact(int index)
+int			PhoneBook::GetNbContacts( void )
 {
-	std::cout << "Name:\t\t" << contacts[index].name << std::endl;
-	std::cout << "Last name:\t" << contacts[index].last_name << std::endl;
-	std::cout << "Nickname:\t" << contacts[index].nickname << std::endl;
-	std::cout << "Phone number:\t" << contacts[index].phone_number << std::endl;
+	return this->num_conts;
+}
+
+void	PhoneBook::PrintContact( int index )
+{
+	std::cout << "Name:\t\t" << contacts[index].GetName() << std::endl;
+	std::cout << "Last name:\t" << contacts[index].GetLastName() << std::endl;
+	std::cout << "Nickname:\t" << contacts[index].GetNick() << std::endl;
+	std::cout << "Phone number:\t" << contacts[index].GetPhone() << std::endl;
 	std::cout << "Darkest Secret:\t" << contacts[index].GetDarkestSecret() << std::endl;
 }
 
@@ -58,11 +62,11 @@ void	PrintOneItem(std::string str)
 void	PrintHistoryLine(Contact *cont, int index)
 {
 	std::cout << index << " |";
-	PrintOneItem(cont->name);
+	PrintOneItem(cont->GetName());
 	std::cout << "|";
-	PrintOneItem(cont->last_name);
+	PrintOneItem(cont->GetLastName());
 	std::cout << "|";
-	PrintOneItem(cont->nickname);
+	PrintOneItem(cont->GetNick());
 	std::cout << std::endl;
 }
 
@@ -72,13 +76,17 @@ void	ScanContactData(PhoneBook *book)
 	std::string	temp;
 
 	std::cout << "Enter contact's name: ";
-	std::cin >> cont.name;
+	std::cin >> temp;
+	cont.SetName(temp);
 	std::cout << "Enter contact's last name: ";
-	std::cin >> cont.last_name;
+	std::cin >> temp;
+	cont.SetLastName(temp);
 	std::cout << "Enter contact's nickname: ";
-	std::cin >> cont.nickname;
+	std::cin >> temp;
+	cont.SetNick(temp);
 	std::cout << "Enter contact's phone number: ";
-	std::cin >> cont.phone_number;
+	std::cin >> temp;
+	cont.SetPhone(temp);
 	std::cout << "Enter contact's darkest secret: ";
 	std::cin >> temp;
 	cont.SetDarkestSecret(temp);
@@ -90,12 +98,12 @@ void	SearchContact(PhoneBook *book)
 	int			index;
 	std::string	input;
 
-	if (book->num_conts == 0)
+	if (book->GetNbContacts() == 0)
 	{
 		std::cerr << "Phonebook is empty!" << std::endl;
 		return ;
 	}
-	for (int i = 0; i < book->num_conts; i++)
+	for (int i = 0; i < book->GetNbContacts(); i++)
 		PrintHistoryLine(book->GetContact(i), i);
 	std::cout << "Input contact index: ";
 	std::cin >> input;
@@ -109,7 +117,7 @@ void	SearchContact(PhoneBook *book)
 	}
 	index = std::atoi(input.c_str());
 	std::cout << index << std::endl;
-	if (index >= 0 && index < book->num_conts)
+	if (index >= 0 && index < book->GetNbContacts())
 		book->PrintContact(index);
 	else
 		std::cerr << "Invalid index!" << std::endl;

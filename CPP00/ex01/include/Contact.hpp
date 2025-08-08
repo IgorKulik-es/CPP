@@ -6,7 +6,7 @@
 /*   By: ikulik <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 13:04:51 by ikulik            #+#    #+#             */
-/*   Updated: 2025/08/01 13:18:54 by ikulik           ###   ########.fr       */
+/*   Updated: 2025/08/08 12:59:32 by ikulik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,22 @@ class Contact
 {
 	private:
 		std::string	darkest_secret;
-	public:
 		std::string	name;
 		std::string	last_name;
 		std::string	nickname;
 		std::string	phone_number;
-		void		SetDarkestSecret(std::string);
-		std::string	GetDarkestSecret(void);
+	public:
 		void		CopyContact(Contact *src);
-};
+		void		SetName( std::string name );
+		void		SetLastName( std::string name );
+		void		SetNick( std::string name );
+		void		SetPhone( std::string name );
+		void		SetDarkestSecret( std::string secret );
+		std::string	GetDarkestSecret( void );
+		std::string	GetName( void );
+		std::string	GetLastName( void );
+		std::string	GetNick( void );
+		std::string	GetPhone( void );
+		};
 
 #endif

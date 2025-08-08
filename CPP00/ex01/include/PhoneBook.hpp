@@ -6,7 +6,7 @@
 /*   By: ikulik <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 13:04:51 by ikulik            #+#    #+#             */
-/*   Updated: 2025/08/01 13:35:58 by ikulik           ###   ########.fr       */
+/*   Updated: 2025/08/08 12:54:47 by ikulik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,11 @@ class PhoneBook
 {
 	private:
 		Contact		contacts[CONT_MAX];
-	public:
 		int			num_conts;
+	public:
 		void		AddContact(Contact *new_cont);
 		Contact*	GetContact(int index);
+		int			GetNbContacts();
 		void		PrintContact(int index);
 		PhoneBook();
 };
