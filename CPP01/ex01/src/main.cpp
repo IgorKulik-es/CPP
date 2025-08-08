@@ -6,7 +6,7 @@
 /*   By: ikulik <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/02 12:48:17 by ikulik            #+#    #+#             */
-/*   Updated: 2025/08/02 12:48:17 by ikulik           ###   ########.fr       */
+/*   Updated: 2025/08/08 17:29:02 by ikulik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	main( void )
 {
 	Zombie	*zombie_ptr;
 	int		nb_horde = 5;
-	
+
 	zombie_ptr = zombieHorde(nb_horde, "Jason");
 	for (int i = 0; i < nb_horde; i++)
 		zombie_ptr[i].announce();

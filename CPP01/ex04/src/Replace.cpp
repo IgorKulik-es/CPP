@@ -6,7 +6,7 @@
 /*   By: ikulik <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/02 16:09:36 by ikulik            #+#    #+#             */
-/*   Updated: 2025/08/02 16:09:36 by ikulik           ###   ########.fr       */
+/*   Updated: 2025/08/08 17:42:42 by ikulik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void	ft_replace(std::ifstream &infile, std::ofstream &outfile, std::string find,
 			index_find += replace.length();
 			index_find = line.find(find, index_find);
 		}
-		outfile << line;
+		outfile << line << std::endl;
 		std::getline(infile, line);
 		index_find = 0;
 	}
