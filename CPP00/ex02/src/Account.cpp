@@ -6,7 +6,7 @@
 /*   By: ikulik <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/01 14:36:48 by ikulik            #+#    #+#             */
-/*   Updated: 2025/08/01 19:29:45 by ikulik           ###   ########.fr       */
+/*   Updated: 2025/08/08 12:26:31 by ikulik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ void Account::makeDeposit( int deposit)
 bool Account::makeWithdrawal ( int withdrawal)
 {
 	_displayTimestamp();
-	std::cout << "index:" << _accountIndex << ";p_amount:" << _amount << ";withdrowal:";
+	std::cout << "index:" << _accountIndex << ";p_amount:" << _amount << ";withdrawal:";
 	if (withdrawal > _amount)
 	{
 		std::cout << "refused" << std::endl;
@@ -101,9 +101,9 @@ void	Account::_displayTimestamp( void )
 	std::cout << std::setfill('0') << std::setw(2) << clock->tm_mon;
 	std::cout << std::setfill('0') << std::setw(2) << clock->tm_mday << "_";
 	std::cout << std::setfill('0') << std::setw(2) << clock->tm_hour;
-	std::cout << std::setfill('0') << std::setw(2) << clock->tm_min; 
+	std::cout << std::setfill('0') << std::setw(2) << clock->tm_min;
 	std::cout << std::setfill('0') << std::setw(2) << clock->tm_sec;
-	std::cout << "]";	
+	std::cout << "] ";
 }
 
 int	Account::checkAmount(void) const
@@ -115,5 +115,5 @@ void	Account::displayStatus(void) const
 {
 	_displayTimestamp();
 	std::cout << "index:" << _accountIndex << ";amount:" << _amount;
-	std::cout << ";deposits" << _nbDeposits << ";withdrawals:" << _nbWithdrawals << std::endl;
+	std::cout << ";deposits:" << _nbDeposits << ";withdrawals:" << _nbWithdrawals << std::endl;
 }
