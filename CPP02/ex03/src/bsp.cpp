@@ -15,15 +15,19 @@
 bool bsp( Point const a, Point const b, Point const c, Point const point)
 {
 	Fixed	side_ab;
-	Fixed	side_ac;
+	Fixed	side_ca;
 	Fixed	side_bc;
 
-	side_ab = (a.getX() - b.getX()) * (point.getX() - b.getX())
-			- (a.getY() - b.getY()) * (point.getY() - b.getY());
-	side_ac = (a.getX() - c.getX()) * (point.getX() - c.getX())
-			- (a.getY() - c.getY()) * (point.getY() - c.getY());
-	side_bc = (b.getX() - c.getX()) * (point.getX() - c.getX())
-			- (b.getY() - c.getY()) * (point.getY() - c.getY());
-	std::cout << side_ab << " " << side_ac << " " << side_bc << std::endl;
-	return true;
+	side_ab = ((a.getX() - b.getX()) * (point.getY() - b.getY()))
+			- ((a.getY() - b.getY()) * (point.getX() - b.getX()));
+	side_bc = ((b.getX() - c.getX()) * (point.getY() - c.getY()))
+			- ((b.getY() - c.getY()) * (point.getX() - c.getX()));
+	side_ca = ((c.getX() - a.getX()) * (point.getY() - a.getY()))
+			- ((c.getY() - a.getY()) * (point.getX() - a.getX()));
+	std::cout << side_ab << " " << side_ca << " " << side_bc << std::endl;
+	if ((side_ab == 0) || (side_bc == 0) || (side_ca == 0))
+		return false;
+	if (((side_ab < 0) != (side_ca < 0)))
+		return false;
+	return ((side_bc < 0) == (side_ab < 0));
 }

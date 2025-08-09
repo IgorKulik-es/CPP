@@ -16,17 +16,16 @@ int main( void )
 {
 	bool	answer;
 
-	Point	a ( 1.0f, 1.0f );
-	Point	b ( 1.0f, 6.0f );
-	Point	c ( 6.0f, 1.0f );
-	Point	p ( 2.0f, -2.0f );
+	Point	a ( 0.0f, 5.0f );
+	Point	b ( 3.0f, 0.0f );
+	Point	c ( 0.0f, 0.0f );
+	Point	p ( -3.0f, 9.0f );
 
 	answer= bsp(a, b, c, p);
 	if (answer)
 		std::cout << "true" << std::endl;
 	else
-		std::cout
-
+		std::cout << "false" << std::endl;
 	return 0;
 }
 

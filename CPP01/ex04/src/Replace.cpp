@@ -43,8 +43,7 @@ void	ft_replace(std::ifstream &infile, std::ofstream &outfile, std::string find,
 	size_t		index_find;
 
 	index_find = 0;
-	std::getline(infile, line);
-	while (line.length() > 0)
+	while (std::getline(infile, line))
 	{
 		index_find = line.find(find, index_find);
 		while (index_find != std::string::npos)
@@ -55,7 +54,6 @@ void	ft_replace(std::ifstream &infile, std::ofstream &outfile, std::string find,
 			index_find = line.find(find, index_find);
 		}
 		outfile << line << std::endl;
-		std::getline(infile, line);
 		index_find = 0;
 	}
 }
