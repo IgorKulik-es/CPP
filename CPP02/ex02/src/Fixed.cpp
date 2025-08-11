@@ -6,7 +6,7 @@
 /*   By: ikulik <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/03 09:39:38 by ikulik            #+#    #+#             */
-/*   Updated: 2025/08/11 16:42:12 by ikulik           ###   ########.fr       */
+/*   Updated: 2025/08/11 17:39:14 by ikulik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,7 +128,13 @@ Fixed	operator/(const Fixed& a, const Fixed& b)
 	return (tmp);
 }
 
-Fixed	Fixed::operator++( void )
+Fixed&	Fixed::operator++( void )
+{
+	(this->value)++;
+	return (*this);
+}
+
+Fixed	Fixed::operator++( int )
 {
 	Fixed	old;
 
@@ -137,25 +143,19 @@ Fixed	Fixed::operator++( void )
 	return (old);
 }
 
-Fixed&	Fixed::operator++( int )
+Fixed&	Fixed::operator--( void )
 {
-	++(this->value);
+	(this->value)--;
 	return (*this);
 }
 
-Fixed	Fixed::operator--( void )
+Fixed	Fixed::operator--( int )
 {
 	Fixed	old;
 
 	old = *this;
 	(this->value)--;
 	return (old);
-}
-
-Fixed&	Fixed::operator--( int )
-{
-	--(this->value);
-	return (*this);
 }
 
 Fixed&	Fixed::min(Fixed& a, Fixed& b)

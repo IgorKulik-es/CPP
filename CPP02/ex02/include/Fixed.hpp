@@ -6,7 +6,7 @@
 /*   By: ikulik <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/03 09:31:22 by ikulik            #+#    #+#             */
-/*   Updated: 2025/08/03 09:31:22 by ikulik           ###   ########.fr       */
+/*   Updated: 2025/08/11 17:32:57 by ikulik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,10 @@ class Fixed
 		int		getBinaryPoint( void ) const;
 		float	toFloat( void ) const;
 		int		toInt( void ) const;
-		Fixed	operator++( void );
-		Fixed&	operator++( int );
-		Fixed	operator--( void );
-		Fixed&	operator--( int );
+		Fixed&	operator++( void );
+		Fixed	operator++( int );
+		Fixed&	operator--( void );
+		Fixed	operator--( int );
 		static Fixed&	min(Fixed& a, Fixed& b);
 		static const Fixed&	min(const Fixed& a, const Fixed& b);
 		static Fixed&	max(Fixed& a, Fixed& b);

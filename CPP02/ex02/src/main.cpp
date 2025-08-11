@@ -6,7 +6,7 @@
 /*   By: ikulik <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/03 09:48:01 by ikulik            #+#    #+#             */
-/*   Updated: 2025/08/11 16:55:23 by ikulik           ###   ########.fr       */
+/*   Updated: 2025/08/11 17:40:59 by ikulik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ int main( void )
 
 	std::cout << b << std::endl;
 	std::cout << Fixed::max( a, b ) << std::endl;
+	std::cout << Fixed::min( c, d ) << std::endl;
 
 	return 0;
 }
