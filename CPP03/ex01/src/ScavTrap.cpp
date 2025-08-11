@@ -1,24 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   ScavTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ikulik <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/10 10:34:44 by ikulik            #+#    #+#             */
-/*   Updated: 2025/08/11 15:14:16 by ikulik           ###   ########.fr       */
+/*   Created: 2025/08/10 10:27:53 by ikulik            #+#    #+#             */
+/*   Updated: 2025/08/11 15:11:25 by ikulik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/ScavTrap.hpp"
 
-int	main( void )
+ScavTrap::ScavTrap( std::string name)
 {
-	ScavTrap	droid_1("R2-D2");
+	std::cout << "Default ScavTrap constructor called" << std::endl;
+	this->setName(name);
+	this->setHitPoints(100);
+	this->setAttackDamage(20);
+	this->setEnegryPoints(50);
+}
 
+ScavTrap::~ScavTrap()
+{
+	std::cout << "ScavTrap destructor called" << std::endl;
+}
 
-	droid_1.attack("Random object");
-	droid_1.beRepaired(5);
-
-	return 0;
+void	ScavTrap::guardGate( void )
+{
+	std::cout << "ScavTrap " << this->getName() << " is in Gate keeper mode" << std::endl;
 }

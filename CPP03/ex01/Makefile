@@ -6,13 +6,13 @@
 #    By: ikulik <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/04 13:34:13 by vtrofyme          #+#    #+#              #
-#    Updated: 2025/08/01 13:13:45 by ikulik           ###   ########.fr        #
+#    Updated: 2025/08/11 15:15:05 by ikulik           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= ClapTrap
+NAME		= ScavTrap
 
-MAIN		= ClapTrap.cpp main.cpp
+MAIN		= ClapTrap.cpp main.cpp ScavTrap.cpp
 
 MAINDIR		= src
 MAINSRC		= $(addprefix $(MAINDIR)/, $(MAIN))

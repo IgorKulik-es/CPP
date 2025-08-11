@@ -6,7 +6,7 @@
 /*   By: ikulik <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/03 09:39:38 by ikulik            #+#    #+#             */
-/*   Updated: 2025/08/03 09:39:38 by ikulik           ###   ########.fr       */
+/*   Updated: 2025/08/11 16:42:12 by ikulik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ Fixed::Fixed ( const float nb)
 float	Fixed::toFloat( void ) const
 {
 	float	tmp;
-	
+
 	tmp = (float)value / (1 << b_point);
 	return tmp;
 }
@@ -116,7 +116,7 @@ Fixed	operator*(const Fixed& a, const Fixed& b)
 {
 	Fixed	tmp;
 
-	tmp.setRawBits(((a.getRawBits() * b.getRawBits()) >> a.getBinaryPoint()));
+	tmp.setRawBits((a.getRawBits() * b.getRawBits()) >> a.getBinaryPoint());
 	return (tmp);
 }
 
@@ -131,7 +131,7 @@ Fixed	operator/(const Fixed& a, const Fixed& b)
 Fixed	Fixed::operator++( void )
 {
 	Fixed	old;
-	
+
 	old = *this;
 	(this->value)++;
 	return (old);
@@ -146,7 +146,7 @@ Fixed&	Fixed::operator++( int )
 Fixed	Fixed::operator--( void )
 {
 	Fixed	old;
-	
+
 	old = *this;
 	(this->value)--;
 	return (old);

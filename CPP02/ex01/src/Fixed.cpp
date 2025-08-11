@@ -6,7 +6,7 @@
 /*   By: ikulik <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/03 09:39:38 by ikulik            #+#    #+#             */
-/*   Updated: 2025/08/06 15:00:49 by ikulik           ###   ########.fr       */
+/*   Updated: 2025/08/11 16:37:34 by ikulik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ Fixed::~Fixed()
 	std::cout << "Destructor called" << std::endl;
 }
 
-const int	Fixed::b_point = 16;
+const int	Fixed::b_point = 8;
 
 int		Fixed::getRawBits( void ) const
 {
@@ -51,6 +51,7 @@ Fixed::Fixed(const int nb)
 
 Fixed::Fixed ( const float nb)
 {
+	std::cout << "Float constructor called" << std::endl;
 	value = roundf(nb * (1 << b_point));
 }
 
