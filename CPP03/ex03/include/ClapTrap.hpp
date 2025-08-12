@@ -6,7 +6,7 @@
 /*   By: ikulik <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/10 10:22:46 by ikulik            #+#    #+#             */
-/*   Updated: 2025/08/12 13:10:47 by ikulik           ###   ########.fr       */
+/*   Updated: 2025/08/12 13:22:05 by ikulik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,9 @@ class ClapTrap
 		void			setAttackDamage( unsigned int value );
 		void			setName( std::string name );
 
-		virtual void	attack(const std::string& target);
-		void			takeDamage(unsigned int amount);
-		void			beRepaired(unsigned int amount);
+		void attack(const std::string& target);
+		void takeDamage(unsigned int amount);
+		void beRepaired(unsigned int amount);
 
 };
 

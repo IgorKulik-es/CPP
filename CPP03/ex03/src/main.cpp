@@ -1,28 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ikulik <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/11 13:30:02 by ikulik            #+#    #+#             */
-/*   Updated: 2025/08/12 12:41:50 by ikulik           ###   ########.fr       */
+/*   Created: 2025/08/10 10:34:44 by ikulik            #+#    #+#             */
+/*   Updated: 2025/08/12 12:34:53 by ikulik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../include/FragTrap.hpp"
 
-#ifndef SCAVTRAP_HPP
-#define SCAVTRAP_HPP
-
-#include "ClapTrap.hpp"
-
-class ScavTrap : public ClapTrap
+int	main( void )
 {
-	public:
-		ScavTrap( std::string name );
-		~ScavTrap();
-		void	attack(const std::string& target);
-		void	guardGate( void );
-};
+	FragTrap	droid_1("R2-D2");
 
-#endif
+
+	droid_1.attack("Random object");
+	droid_1.beRepaired(5);
+	droid_1.highFivesGuys();
+
+	return 0;
+}
