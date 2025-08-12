@@ -6,7 +6,7 @@
 /*   By: ikulik <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/10 10:27:53 by ikulik            #+#    #+#             */
-/*   Updated: 2025/08/10 10:27:53 by ikulik           ###   ########.fr       */
+/*   Updated: 2025/08/12 12:24:30 by ikulik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ ClapTrap::ClapTrap( ClapTrap& copy )
 }
 ClapTrap::~ClapTrap()
 {
-	std::cout << "Destructor called" << std::endl;
+	std::cout << "ClapTrap destructor called" << std::endl;
 }
 
 unsigned int	ClapTrap::getHitPoints( void ) const

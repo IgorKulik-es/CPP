@@ -6,16 +6,15 @@
 /*   By: ikulik <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/10 10:27:53 by ikulik            #+#    #+#             */
-/*   Updated: 2025/08/11 15:11:25 by ikulik           ###   ########.fr       */
+/*   Updated: 2025/08/12 12:26:27 by ikulik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/ScavTrap.hpp"
 
-ScavTrap::ScavTrap( std::string name)
+ScavTrap::ScavTrap( std::string name ) : ClapTrap::ClapTrap( name )
 {
 	std::cout << "Default ScavTrap constructor called" << std::endl;
-	this->setName(name);
 	this->setHitPoints(100);
 	this->setAttackDamage(20);
 	this->setEnegryPoints(50);
@@ -28,5 +27,5 @@ ScavTrap::~ScavTrap()
 
 void	ScavTrap::guardGate( void )
 {
-	std::cout << "ScavTrap " << this->getName() << " is in Gate keeper mode" << std::endl;
+	std::cout << "ScavTrap " << this->getName() << " is now in Gate keeper mode!" << std::endl;
 }
