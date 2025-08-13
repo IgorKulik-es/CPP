@@ -13,37 +13,22 @@
 
 #include "../include/DiamondTrap.hpp"
 
-FragTrap::FragTrap( std::string name ) : ClapTrap::ClapTrap( name )
+DiamondTrap::DiamondTrap( std::string name ) : ClapTrap::ClapTrap( name + "_clap_name" )
 {
-	std::cout << "Default FragTrap constructor called" << std::endl;
+	std::cout << "Default DiamondTrap constructor called" << std::endl;
+	this->name = name;
 	this->hit_points = 100;
 	this->attack_damage = 30;
-	this->energy_points = 100;
+	this->energy_points = 50;
 }
 
-FragTrap::~FragTrap()
+DiamondTrap::~DiamondTrap()
 {
-	std::cout << "FragTrap destructor called" << std::endl;
+	std::cout << "DiamondTrap destructor called" << std::endl;
 }
 
-void	FragTrap::highFivesGuys( void )
+void	DiamondTrap::whoAmI( void )
 {
-	std::cout << "FragTrap " << this->getName() << " invites you to give him five!" << std::endl;
-}
-
-void FragTrap::attack(const std::string& target)
-{
-	if (this->hit_points == 0)
-	{
-		std::cout << "Repairs needed!" << std::endl;
-		return ;
-	}
-	if (this->energy_points == 0)
-	{
-		std::cout << "Not enough energy points!" << std::endl;
-		return ;
-	}
-	(this->energy_points)--;
-	std::cout << "FragTrap " << this->name << " attacks " << target << ", causing ";
-	std::cout << this->attack_damage << " points of damage!" << std::endl;
+	std::cout << "DiamondTrap name: " << this->name;
+	std::cout << ", ClapTrap name: " << this->ClapTrap::name << std::endl;
 }

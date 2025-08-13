@@ -28,6 +28,11 @@ ClapTrap::ClapTrap( ClapTrap& copy )
 	this->energy_points = copy.getEnegryPoints();
 	this->attack_damage = copy.getAttackDamage();
 }
+
+ClapTrap::ClapTrap()
+{
+}
+
 ClapTrap::~ClapTrap()
 {
 	std::cout << "ClapTrap destructor called" << std::endl;

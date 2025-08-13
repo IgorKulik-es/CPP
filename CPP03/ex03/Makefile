@@ -10,9 +10,9 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= FragTrap
+NAME		= DiamondTrap
 
-MAIN		= ClapTrap.cpp main.cpp FragTrap.cpp
+MAIN		= ClapTrap.cpp main.cpp FragTrap.cpp DiamondTrap.cpp ScavTrap.cpp
 
 MAINDIR		= src
 MAINSRC		= $(addprefix $(MAINDIR)/, $(MAIN))

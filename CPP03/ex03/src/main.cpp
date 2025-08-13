@@ -10,16 +10,18 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/FragTrap.hpp"
+#include "../include/DiamondTrap.hpp"
 
 int	main( void )
 {
-	FragTrap	droid_1("R2-D2");
+	DiamondTrap	droid_1("R2-D2");
 
 
 	droid_1.attack("Random object");
 	droid_1.beRepaired(5);
 	droid_1.highFivesGuys();
+	droid_1.guardGate();
+	droid_1.whoAmI();
 
 	return 0;
 }

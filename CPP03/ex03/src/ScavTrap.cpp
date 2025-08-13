@@ -14,10 +14,14 @@
 
 ScavTrap::ScavTrap( std::string name ) : ClapTrap::ClapTrap( name )
 {
-	std::cout << "Default ScavTrap constructor called" << std::endl;
 	this->hit_points = 100;
 	this->attack_damage = 20;
 	this->energy_points = 50;
+}
+
+ScavTrap::ScavTrap()
+{
+	std::cout << "Default ScavTrap constructor called" << std::endl;
 }
 
 ScavTrap::~ScavTrap()
