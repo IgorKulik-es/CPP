@@ -6,7 +6,7 @@
 /*   By: ikulik <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/13 16:24:40 by ikulik            #+#    #+#             */
-/*   Updated: 2025/08/13 17:29:05 by ikulik           ###   ########.fr       */
+/*   Updated: 2025/08/13 19:40:17 by ikulik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,4 +45,13 @@ void	Dog::operator=(Dog& copy)
 void Dog::makeSound() const
 {
 	std::cout << "*BARK*" << std::endl;
+}
+
+Brain*	Dog::getBrain( void ) const
+{
+	return this->brain;
+}
+void	Dog::setBrain( Brain* new_brain)
+{
+	this->brain = new_brain;
 }

@@ -14,16 +14,21 @@
 #define DOG_HPP
 
 #include "../include/Animal.hpp"
+#include "../include/Brain.hpp"
 
 class Dog : public Animal
 {
+	private:
+		Brain	*brain;
 	public:
 		Dog( );
 		Dog( Dog& copy );
-		~Dog();
+		~Dog();s
 		void	operator=(Dog& copy);
 		std::string		getType( void ) const;
 		void			setType( std::string name );
+		Brain*			getBrain( void ) const;
+		void			setBrain( Brain* new_brain);
 
 		void makeSound() const;
 };

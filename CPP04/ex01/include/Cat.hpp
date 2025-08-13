@@ -6,7 +6,7 @@
 /*   By: ikulik <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/13 16:30:03 by ikulik            #+#    #+#             */
-/*   Updated: 2025/08/13 19:30:16 by ikulik           ###   ########.fr       */
+/*   Updated: 2025/08/13 19:38:45 by ikulik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ class Cat : public Animal
 		void	operator=(Cat& copy);
 		std::string		getType( void ) const;
 		void			setType( std::string name );
+		Brain*			getBrain( void ) const;
+		void			setBrain( Brain* new_brain);
 
 		void makeSound() const;
 };
