@@ -10,9 +10,9 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= Animals
+NAME		= Brain
 
-MAIN		= Animal.cpp Dog.cpp Cat.cpp main.cpp WrongAnimal.cpp WrongCat.cpp
+MAIN		= Animal.cpp Dog.cpp Cat.cpp main.cpp Brain.cpp
 
 MAINDIR		= src
 MAINSRC		= $(addprefix $(MAINDIR)/, $(MAIN))
@@ -50,4 +50,4 @@ fclean: clean
 
 re: fclean all
 
-PHONY: all clean flcean re
+.PHONY: all clean flcean re

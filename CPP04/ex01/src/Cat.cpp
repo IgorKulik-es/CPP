@@ -22,27 +22,19 @@ Cat::Cat( Cat& copy ) : Animal::Animal( copy )
 {
 	std::cout << "Copy Cat constructor called" << std::endl;
 	brain = new Brain();
-	brain = copy.brain;
+	*this = copy;
 }
 Cat::~Cat()
 {
 	std::cout << "Cat destructor called" << std::endl;
-}
-
-std::string		Cat::getType( void ) const
-{
-	return this->type;
-}
-
-void	Cat::setType( std::string name)
-{
-	this->type = name;
+	delete this->brain;
 }
 
 void	Cat::operator=(Cat& copy)
 {
 	std::cout << "Copy Cat assignment operator called" << std::endl;
 	this->type = copy.getType();
+	*brain = *(copy.getBrain());
 }
 
 void Cat::makeSound() const
@@ -54,7 +46,7 @@ Brain*	Cat::getBrain( void ) const
 {
 	return this->brain;
 }
-void	Cat::setBrain( Brain* new_brain)
+void	Cat::setBrain( Brain& new_brain)
 {
-	this->brain = new_brain;
+	*(this->brain) = new_brain;
 }

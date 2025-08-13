@@ -23,12 +23,10 @@ class Dog : public Animal
 	public:
 		Dog( );
 		Dog( Dog& copy );
-		~Dog();s
+		~Dog();
 		void	operator=(Dog& copy);
-		std::string		getType( void ) const;
-		void			setType( std::string name );
 		Brain*			getBrain( void ) const;
-		void			setBrain( Brain* new_brain);
+		void			setBrain( Brain& new_brain);
 
 		void makeSound() const;
 };

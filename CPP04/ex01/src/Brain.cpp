@@ -32,7 +32,7 @@ std::string		Brain::getIdea( int index ) const
 	return this->ideas[index];
 }
 
-void	Brain::setIdea( std::string& idea, int index)
+void	Brain::setIdea( const std::string& idea, int index)
 {
 	this->ideas[index] = idea;
 }

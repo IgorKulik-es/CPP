@@ -12,31 +12,38 @@
 
 #include "../include/Dog.hpp"
 #include "../include/Cat.hpp"
-#include "../include/WrongCat.hpp"
 
 int main()
 {
-	const Animal*		meta = new Animal();
-	const Animal*		j = new Dog();
-	const Animal*		i = new Cat();
-	const WrongAnimal*	beast = new WrongAnimal();
-	const WrongAnimal*	tom = new WrongCat();
-	std::cout << j->getType() << " " << std::endl;
-	std::cout << i->getType() << " " << std::endl;
-	std::cout << i->getType() << ": ";
-	i->makeSound(); //will output the cat sound!
-	std::cout << j->getType() << ": ";
-	j->makeSound();
-	std::cout << meta->getType() << ": ";
-	meta->makeSound();
-	std::cout << beast->getType() << ": ";
-	beast->makeSound();
-	std::cout << tom->getType() << ": ";
-	tom->makeSound();
+	Animal*	zoo[4];
 
-	delete meta;
-	delete i;
-	delete j;
+	std::cout << "\nCOPY OPERATORS VERIFICATION\n" << std::endl;
 
+	Dog		dog1;
+	Brain	implant;
+
+	for(int i = 0; i < BRAIN_SIZE; i++)
+		implant.setIdea("Dog food", i);
+	dog1.setBrain(implant);
+
+	Dog	dog_copy(dog1);
+	
+	dog_copy.getBrain()->setIdea("Sleep", 0);
+	std::cout << "Original thought: " << dog1.getBrain()->getIdea(0) << std::endl;
+	std::cout << "Copy thought: " << dog_copy.getBrain()->getIdea(0) << std::endl;
+	std::cout << "\nARRAY CREATION\n\n";
+
+	zoo[0] = new Dog();
+	zoo[1] = new Dog();
+	zoo[2] = new Cat();
+	zoo[3] = new Cat();
+
+	for (int i = 0; i < 4; i++)
+	{
+		std::cout << zoo[i]->getType() << ": ";
+		zoo[i]->makeSound();
+	}
+	for (int i = 0; i < 4; i++)
+		delete zoo[i];
 	return 0;
 }
