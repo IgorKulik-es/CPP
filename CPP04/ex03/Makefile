@@ -6,13 +6,13 @@
 #    By: ikulik <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/04 13:34:13 by vtrofyme          #+#    #+#              #
-#    Updated: 2025/08/13 17:50:33 by ikulik           ###   ########.fr        #
+#    Updated: 2025/08/14 17:05:07 by ikulik           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= Abstract
+NAME		= Magic
 
-MAIN		= Animal.cpp Dog.cpp Cat.cpp main.cpp Brain.cpp
+MAIN		= main.cpp AMateria.cpp Character.cpp Cure.cpp Ice.cpp MateriaSource.cpp
 
 MAINDIR		= src
 MAINSRC		= $(addprefix $(MAINDIR)/, $(MAIN))
