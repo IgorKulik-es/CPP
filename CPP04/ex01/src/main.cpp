@@ -6,7 +6,7 @@
 /*   By: ikulik <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/10 10:34:44 by ikulik            #+#    #+#             */
-/*   Updated: 2025/08/13 17:57:35 by ikulik           ###   ########.fr       */
+/*   Updated: 2025/08/14 18:23:26 by ikulik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,9 @@ int main()
 	dog1.setBrain(implant);
 
 	Dog	dog_copy(dog1);
-	
+
 	dog_copy.getBrain()->setIdea("Sleep", 0);
-	std::cout << "Original thought: " << dog1.getBrain()->getIdea(0) << std::endl;
+	std::cout << "\nOriginal thought: " << dog1.getBrain()->getIdea(0) << std::endl;
 	std::cout << "Copy thought: " << dog_copy.getBrain()->getIdea(0) << std::endl;
 	std::cout << "\nARRAY CREATION\n\n";
 

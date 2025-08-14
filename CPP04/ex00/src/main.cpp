@@ -6,7 +6,7 @@
 /*   By: ikulik <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/10 10:34:44 by ikulik            #+#    #+#             */
-/*   Updated: 2025/08/13 17:57:35 by ikulik           ###   ########.fr       */
+/*   Updated: 2025/08/14 18:20:55 by ikulik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ int main()
 	delete meta;
 	delete i;
 	delete j;
+	delete beast;
+	delete tom;
 
 	return 0;
 }
