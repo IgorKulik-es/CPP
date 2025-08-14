@@ -6,7 +6,7 @@
 /*   By: ikulik <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/14 00:50:07 by ikulik            #+#    #+#             */
-/*   Updated: 2025/08/14 00:50:07 by ikulik           ###   ########.fr       */
+/*   Updated: 2025/08/14 17:54:32 by ikulik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,12 @@
 class Ice : public AMateria
 {
 	public:
-		Ice( const std::string& type );
+		Ice( );
 		Ice( const Ice& copy );
 		~Ice();
-		void				operator=( const Ice& copy);
-		Ice*		clone() const;
-		void		use(ICharacter& target);
+		void	operator=( const Ice& copy);
+		Ice*	clone() const;
+		void	use(ICharacter& target);
 };
 
 #endif

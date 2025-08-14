@@ -6,7 +6,7 @@
 /*   By: ikulik <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/14 14:43:30 by ikulik            #+#    #+#             */
-/*   Updated: 2025/08/14 15:40:30 by ikulik           ###   ########.fr       */
+/*   Updated: 2025/08/14 17:43:33 by ikulik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ Character::Character( const std::string& name )
 {
 	this->name = name;
 	for (int i = 0; i < MAX_MATERIAS; i++)
-		this->inventory[i] = NULL;
+		inventory[i] = NULL;
 }
 Character::Character( const Character& copy )
 {
@@ -69,7 +69,9 @@ void Character::equip(AMateria* m)
 {
 	int	index = 0;
 
-	while (this->inventory[4] != NULL && index < MAX_MATERIAS)
+	if (m == NULL)
+		return ;
+	while (this->inventory[index] != NULL && index < MAX_MATERIAS)
 		index++;
 	if (index < MAX_MATERIAS)
 	{

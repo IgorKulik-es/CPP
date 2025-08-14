@@ -6,13 +6,14 @@
 /*   By: ikulik <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/14 00:53:58 by ikulik            #+#    #+#             */
-/*   Updated: 2025/08/14 15:38:14 by ikulik           ###   ########.fr       */
+/*   Updated: 2025/08/14 16:54:58 by ikulik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/Ice.hpp"
+#include "../include/Character.hpp"
 
-Ice::Ice( const std::string& type ) : AMateria::AMateria( type )
+Ice::Ice( ) : AMateria::AMateria( "ice" )
 {
 }
 Ice::Ice( const Ice& copy ) : AMateria::AMateria( copy )
@@ -28,7 +29,7 @@ void	Ice::operator=( const Ice& copy )
 
 Ice*	Ice::clone() const
 {
-	return new Ice(this->type);
+	return new Ice();
 }
 
 void	Ice::use(ICharacter& target)

@@ -6,7 +6,7 @@
 /*   By: ikulik <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/14 15:42:29 by ikulik            #+#    #+#             */
-/*   Updated: 2025/08/14 16:04:58 by ikulik           ###   ########.fr       */
+/*   Updated: 2025/08/14 17:55:00 by ikulik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,15 @@
 class MateriaSource : public IMateriaSource
 {
 	private:
-		AMateria	*inventory[4];
+		AMateria*	inventory[MAX_MATERIA_S];
 	public:
 		MateriaSource( );
 		MateriaSource( const MateriaSource& copy );
 		~MateriaSource( );
-		void			operator=( const MateriaSource& copy);
-		const AMateria*	MateriaSource::getMateria( int index) const;
+		void			operator=( const MateriaSource& copy );
+		const AMateria*	getMateria( int index ) const;
 		void			learnMateria( AMateria* m );
-		AMateria*		createMateria( const std::string& type);
+		AMateria*		createMateria( const std::string& type );
 };
 
 #endif

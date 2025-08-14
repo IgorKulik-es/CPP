@@ -6,7 +6,7 @@
 /*   By: ikulik <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/14 00:52:35 by ikulik            #+#    #+#             */
-/*   Updated: 2025/08/14 00:52:35 by ikulik           ###   ########.fr       */
+/*   Updated: 2025/08/14 17:37:53 by ikulik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,10 @@ void	AMateria::setType( std::string name)
 void	AMateria::operator=( const AMateria& copy )
 {
 	this->type = copy.getType();
+}
+
+void	AMateria::use(ICharacter& target)
+{
+	(void)target;
 }
 

@@ -1,15 +1,14 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   MateriSource.cpp                                   :+:      :+:    :+:   */
+/*   MateriaSource.cpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ikulik <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/14 15:49:56 by ikulik            #+#    #+#             */
-/*   Updated: 2025/08/14 16:13:17 by ikulik           ###   ########.fr       */
+/*   Created: 2025/08/14 16:19:22 by ikulik            #+#    #+#             */
+/*   Updated: 2025/08/14 17:48:53 by ikulik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "../include/MateriaSource.hpp"
 
@@ -58,23 +57,24 @@ void	MateriaSource::learnMateria( AMateria* m )
 {
 	int	index = 0;
 
-	while (this->inventory[4] != NULL && index < MAX_MATERIA_S)
+	while (this->inventory[index] != NULL && index < MAX_MATERIA_S)
 		index++;
 	if (index < MAX_MATERIA_S)
 	{
-		std::cout << "Materia Source: " << m->getType() << " learned"<< std::endl;
 		this->inventory[index] = m;
 	}
 }
 
 AMateria*	MateriaSource::createMateria(const std::string& type)
 {
-	int			index = 0;
 	AMateria	*find = NULL;
 
-	while (index < MAX_MATERIA_S && this->inventory[index]->getType() != type)
-		index++;
-	if (index < MAX_MATERIA_S)
-		find = this->inventory[index]->clone();
+	for (int i = 0; i < MAX_MATERIA_S; i++)
+	{
+		if (this->inventory[i] != NULL && this->inventory[i]->getType() == type)
+			find = this->inventory[i]->clone();
+	}
 	return find;
 }
+
+// FOR DEBUG std::cout << "Materia Source: " << m->getType() << " learned"<< std::endl;
