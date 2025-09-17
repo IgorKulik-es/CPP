@@ -19,6 +19,8 @@
 # include <string>
 # include <sstream>
 
+class	Form;
+
 class	Bureaucrat
 {
 	private:
@@ -34,6 +36,7 @@ class	Bureaucrat
 		int					getGrade( void ) const;
 		void				IncrementGrade( void );
 		void				DecrementGrade( void );
+		void				signForm( Form& form) const;
 
 		class	GradeTooHighException : public std::exception
 		{

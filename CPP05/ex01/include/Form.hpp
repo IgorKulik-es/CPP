@@ -13,23 +13,31 @@
 
 #ifndef FORM_HPP
 # define FORM_HPP
-# include "Bureaucrat.hpp"
+
+# include <iostream>
+# include <string>
+# include <sstream>
+
+class Bureaucrat;
 
 class	Form
 {
 	private:
 		const std::string	name;
-		int					grade;
+		const int			grade_sign;
+		const int			grade_exec;
+		bool				is_signed;
 	public:
-		Form( std::string name, int grade);
+		Form( std::string name, int grade_sign, int grade_exec);
 		Form( const Form& copy );
 		~Form();
 		
 		void				operator=( const Form& copy );
 		const std::string	getName( void ) const;
-		int					getGrade( void ) const;
-		void				IncrementGrade( void );
-		void				DecrementGrade( void );
+		int					getGradeSign( void ) const;
+		int					getGradeExec( void ) const;
+		bool				getIsSigned( void ) const;
+		void				beSigned( const Bureaucrat& bur);
 
 		class	GradeTooHighException : public std::exception
 		{
@@ -44,7 +52,7 @@ class	Form
 		};
 };
 
-std::ostream&	operator<<(std::ostream& os, const Bureaucrat& bur);
+std::ostream&	operator<<(std::ostream& os, const Form& form);
 
 
 

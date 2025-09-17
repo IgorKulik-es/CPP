@@ -10,9 +10,9 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= Bureaucrat
+NAME		= Form
 
-MAIN		= main.cpp Bureaucrat.cpp
+MAIN		= main.cpp Bureaucrat.cpp Form.cpp
 MAINDIR		= src
 MAINSRC		= $(addprefix $(MAINDIR)/, $(MAIN))
 SRCSDIR		= src
