@@ -6,13 +6,13 @@
 #    By: ikulik <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/04 13:34:13 by vtrofyme          #+#    #+#              #
-#    Updated: 2025/08/14 17:05:07 by ikulik           ###   ########.fr        #
+#    Updated: 2025/09/18 13:22:07 by ikulik           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= Bureaucrat
+NAME		= Convert
 
-MAIN		= main.cpp Bureaucrat.cpp
+MAIN		= main.cpp ScalarConverter.cpp
 MAINDIR		= src
 MAINSRC		= $(addprefix $(MAINDIR)/, $(MAIN))
 SRCSDIR		= src

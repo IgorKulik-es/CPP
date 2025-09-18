@@ -6,44 +6,25 @@
 /*   By: ikulik <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/14 12:54:26 by ikulik            #+#    #+#             */
-/*   Updated: 2025/09/14 12:54:26 by ikulik           ###   ########.fr       */
+/*   Updated: 2025/09/18 17:34:14 by ikulik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/Bureaucrat.hpp"
+#include "ScalarConverter.hpp"
 
 int	main()
 {
-	Bureaucrat	dave("Dave", 2);
-
-	std::cout << "Instantiated: " << dave << std::endl;
-	dave.IncrementGrade();
-	try
-	{
-		dave.IncrementGrade();
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << '\n';
-	}
-	try
-	{
-		Bureaucrat	too_low("Hugh", 160);
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << '\n';
-	}
-
-	Bureaucrat	lowest("Fry", 150);
-
-	try
-	{
-		lowest.DecrementGrade();
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << '\n';
-	}
+	std::cout << "Char literal: a" << std::endl;
+	ScalarConverter::convert("'a'");
+	std::cout << "Int literal: 98" << std::endl;
+	ScalarConverter::convert("98");
+	std::cout << "Float literal: +inff" << std::endl;
+	ScalarConverter::convert("+inff");
+	std::cout << "Double literal: nan" << std::endl;
+	ScalarConverter::convert("nan");
+	std::cout << "Unrecoginzable literal: k" << std::endl;
+	ScalarConverter::convert("k");
+	std::cout << "Unrecoginzable literal: 13.2e" << std::endl;
+	ScalarConverter::convert("13.2e");
 	return (0);
 }
