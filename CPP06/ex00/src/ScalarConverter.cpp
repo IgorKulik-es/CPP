@@ -6,7 +6,7 @@
 /*   By: ikulik <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/18 12:21:01 by ikulik            #+#    #+#             */
-/*   Updated: 2025/09/18 17:26:30 by ikulik           ###   ########.fr       */
+/*   Updated: 2025/09/18 18:04:32 by ikulik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,44 +97,58 @@ void	ScalarConverter::convert( std::string number )
 
 void	ScalarConverter::print_char( char c )
 {
-	std::cout << "Identified type char:\t";
+	std::cout << "Identified type: char" << std::endl;
+	std::cout << "char:\t'";
 	correct_char(c);
-	std::cout << "Cast to int:\t\t" << static_cast<int>(c) << std::endl;
-	std::cout << "Cast to float:\t\t" << static_cast<float>(c) << std::endl;
-	std::cout << "Cast to double:\t\t" << static_cast<double>(c) << std::endl;
+	std::cout << "int:\t" << static_cast<int>(c) << std::endl;
+	std::cout << "float:\t" << static_cast<float>(c) << std::endl;
+	std::cout << "double:\t" << static_cast<double>(c) << std::endl;
 }
 
 void	ScalarConverter::print_int( int i )
 {
-	std::cerr << "Identified type int:\t" << i << std::endl;
-	std::cout << "Cast to char:\t\t";
+	std::cout << "Identified type: int" << std::endl;
+	std::cout << "char:\t'";
 	correct_char(static_cast<char>(i));
-	std::cout << "Cast to float:\t\t" << static_cast<float>(i) << std::endl;
-	std::cout << "Cast to double:\t\t" << static_cast<double>(i) << std::endl;
+	std::cout << "int:\t" << i << std::endl;
+	std::cout << "float:\t" << static_cast<float>(i) << std::endl;
+	std::cout << "double:\t" << static_cast<double>(i) << std::endl;
 }
 
 void	ScalarConverter::print_float( float f )
 {
-	std::cerr << "Identified type float:\t" << f << std::endl;
-	std::cout << "Cast to char:\t\t";
+	std::cerr << "Identified type: float" << std::endl;
+	std::cout << "char:\t'";
 	correct_char(static_cast<char>(f));
-	std::cout << "Cast to int:\t\t" << static_cast<int>(f) << std::endl;
-	std::cout << "Cast to double:\t\t" << static_cast<double>(f) << std::endl;
+	std::cout << "int:\t";
+	correct_int(f);
+	std::cout << "float:\t" << f << std::endl;
+	std::cout << "double:\t" << static_cast<double>(f) << std::endl;
 }
 
 void	ScalarConverter::print_double( double d )
 {
-	std::cerr << "Identified type double:\t" << d << std::endl;
-	std::cout << "Cast to char:\t\t";
+	std::cerr << "Identified type: double" << std::endl;
+	std::cout << "char:\t'";
 	correct_char(static_cast<char>(d));
-	std::cout << "Cast to int:\t\t" << static_cast<int>(d) << std::endl;
-	std::cout << "Cast to float:\t\t" << static_cast<float>(d) << std::endl;
+	std::cout << "int:\t";
+	correct_int(d);
+	std::cout << "float:\t" << static_cast<float>(d) << std::endl;
+	std::cout << "double:\t" << d << std::endl;
 }
 
 void	ScalarConverter::correct_char(char c)
 {
 	if (isprint(c))
-		std::cout << c << std::endl;
+		std::cout << c << "'" << std::endl;
 	else
-		std::cout << "(unprintable)" << std::endl;
+		std::cout << "imposible" << "'" << std::endl;
+}
+
+void	ScalarConverter::correct_int(double d)
+{
+	if (std::isnormal(d))
+		std::cout << static_cast<int>(d) << std::endl;
+	else
+		std::cout << "imposible" << std::endl;
 }
