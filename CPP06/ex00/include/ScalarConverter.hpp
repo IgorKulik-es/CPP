@@ -6,7 +6,7 @@
 /*   By: ikulik <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/18 12:15:27 by ikulik            #+#    #+#             */
-/*   Updated: 2025/09/18 18:09:44 by ikulik           ###   ########.fr       */
+/*   Updated: 2025/09/18 18:14:51 by ikulik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@
 # include <cmath>
 
 class	ScalarConverter
-{	private:
+{
+	private:
 		static char	get_type( std::string number );
 		static void	print_type( std::string number, char type );
 		static void	print_char( char c );
