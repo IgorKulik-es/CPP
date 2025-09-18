@@ -6,7 +6,7 @@
 /*   By: ikulik <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/18 12:15:27 by ikulik            #+#    #+#             */
-/*   Updated: 2025/09/18 18:05:48 by ikulik           ###   ########.fr       */
+/*   Updated: 2025/09/18 18:09:44 by ikulik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@
 
 # include <iostream>
 # include <string>
-# include <typeinfo>
 # include <cstdlib>
 # include <cmath>
 
