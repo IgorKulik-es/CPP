@@ -7,7 +7,7 @@
 # Unignore all dirs
 !*/
 
-# Unignore all dirs
+# Unignore Makefile
 !Makefile
 
 # Prerequisites
