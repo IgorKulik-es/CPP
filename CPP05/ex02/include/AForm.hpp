@@ -6,7 +6,7 @@
 /*   By: ikulik <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/17 17:50:01 by ikulik            #+#    #+#             */
-/*   Updated: 2025/09/17 17:50:01 by ikulik           ###   ########.fr       */
+/*   Updated: 2025/09/19 16:04:38 by ikulik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,6 @@
 # define AFORM_HPP
 
 # include <iostream>
-# include <fstream>
-# include <string>
-# include <sstream>
-# include <cstdlib>
 
 class Bureaucrat;
 
@@ -32,7 +28,7 @@ class	AForm
 		AForm( std::string name, int grade_sign, int grade_exec);
 		AForm( const AForm& copy );
 		virtual ~AForm();
-		
+
 		void				operator=( const AForm& copy );
 		const std::string	getName( void ) const;
 		int					getGradeSign( void ) const;
@@ -53,7 +49,7 @@ class	AForm
 			public:
 				const char*	what() const throw();
 		};
-		class FormUnsignedException : public std::exception
+		class	FormUnsignedException : public std::exception
 		{
 			public:
 				const char*	what() const throw();

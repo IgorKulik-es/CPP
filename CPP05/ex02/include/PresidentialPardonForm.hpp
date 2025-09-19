@@ -6,7 +6,7 @@
 /*   By: ikulik <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/17 21:41:45 by ikulik            #+#    #+#             */
-/*   Updated: 2025/09/17 21:41:45 by ikulik           ###   ########.fr       */
+/*   Updated: 2025/09/19 15:59:14 by ikulik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define PRESIDENTIALPARDONFORM_HPP
 
 # include "AForm.hpp"
+# include <string>
 
 class Bureaucrat;
 class AForm;

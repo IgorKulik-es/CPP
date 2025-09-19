@@ -6,7 +6,7 @@
 /*   By: ikulik <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/17 21:56:28 by ikulik            #+#    #+#             */
-/*   Updated: 2025/09/17 21:56:28 by ikulik           ###   ########.fr       */
+/*   Updated: 2025/09/19 14:59:09 by ikulik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define INTERN_HPP
 
 # include "AForm.hpp"
-# include <map>
 
 class	Intern
 {

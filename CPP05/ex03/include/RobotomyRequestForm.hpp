@@ -6,7 +6,7 @@
 /*   By: ikulik <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/17 21:00:26 by ikulik            #+#    #+#             */
-/*   Updated: 2025/09/17 21:00:26 by ikulik           ###   ########.fr       */
+/*   Updated: 2025/09/19 15:57:50 by ikulik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define ROBOTOMYREQUESTFORM_HPP
 
 # include "AForm.hpp"
+# include <cstdlib>
 
 class Bureaucrat;
 class AForm;

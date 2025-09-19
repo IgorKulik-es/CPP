@@ -6,7 +6,7 @@
 /*   By: ikulik <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/13 16:39:14 by ikulik            #+#    #+#             */
-/*   Updated: 2025/09/13 16:39:14 by ikulik           ###   ########.fr       */
+/*   Updated: 2025/09/19 16:04:56 by ikulik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@
 # define GRADE_LOWEST 150
 
 # include <iostream>
-# include <string>
-# include <sstream>
 
 class	AForm;
 
@@ -30,7 +28,7 @@ class	Bureaucrat
 		Bureaucrat( std::string name, int grade);
 		Bureaucrat( const Bureaucrat& copy );
 		~Bureaucrat();
-		
+
 		void				operator=( const Bureaucrat& copy );
 		const std::string	getName( void ) const;
 		int					getGrade( void ) const;
