@@ -6,7 +6,7 @@
 /*   By: ikulik <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/13 16:39:14 by ikulik            #+#    #+#             */
-/*   Updated: 2025/09/19 16:04:56 by ikulik           ###   ########.fr       */
+/*   Updated: 2025/09/22 13:43:11 by ikulik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,10 @@ class	Bureaucrat
 		const std::string	name;
 		int					grade;
 	public:
-		Bureaucrat( std::string name, int grade);
+		Bureaucrat( const std::string& name, int grade);
 		Bureaucrat( const Bureaucrat& copy );
 		~Bureaucrat();
-
-		void				operator=( const Bureaucrat& copy );
+		void	operator=( const Bureaucrat& copy );
 		const std::string	getName( void ) const;
 		int					getGrade( void ) const;
 		void				IncrementGrade( void );

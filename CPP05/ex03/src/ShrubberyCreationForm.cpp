@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AForm.cpp                                          :+:      :+:    :+:   */
+/*   ShrubberyCreationForm.cpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ikulik <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/17 17:51:25 by ikulik            #+#    #+#             */
-/*   Updated: 2025/09/17 17:51:25 by ikulik           ###   ########.fr       */
+/*   Updated: 2025/09/22 13:44:21 by ikulik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 static void	printTree(std::ostream& os);
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string target): AForm("ShrubberyCreationForm", 145, 137), target(target)
+ShrubberyCreationForm::ShrubberyCreationForm( const std::string& target ): AForm("ShrubberyCreationForm", 145, 137), target(target)
 {
 }
 
@@ -41,7 +41,7 @@ void	ShrubberyCreationForm::execute( const Bureaucrat& executor ) const
 {
 	std::ofstream	file;
 	std::string		file_name;
-	
+
 	this->checkExec(executor);
 	file_name = this->target;
 	file_name.append("_shrubbery");

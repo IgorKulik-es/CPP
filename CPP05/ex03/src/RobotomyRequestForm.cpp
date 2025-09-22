@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AForm.cpp                                          :+:      :+:    :+:   */
+/*   RobotomyRequestForm.cpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ikulik <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/17 17:51:25 by ikulik            #+#    #+#             */
-/*   Updated: 2025/09/17 17:51:25 by ikulik           ###   ########.fr       */
+/*   Updated: 2025/09/22 13:44:07 by ikulik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RobotomyRequestForm.hpp"
 #include "Bureaucrat.hpp"
 
-RobotomyRequestForm::RobotomyRequestForm(std::string target): AForm("RobotomyRequestForm", 72, 45), target(target)
+RobotomyRequestForm::RobotomyRequestForm( const std::string& target ): AForm("RobotomyRequestForm", 72, 45), target(target)
 {
 }
 

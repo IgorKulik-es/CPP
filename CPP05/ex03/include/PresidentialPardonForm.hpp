@@ -6,7 +6,7 @@
 /*   By: ikulik <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/17 21:41:45 by ikulik            #+#    #+#             */
-/*   Updated: 2025/09/19 15:59:14 by ikulik           ###   ########.fr       */
+/*   Updated: 2025/09/22 13:45:58 by ikulik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ class AForm;
 class	PresidentialPardonForm : public AForm
 {
 	private:
-		std::string	target;
+		const std::string	target;
 	public:
-		PresidentialPardonForm( std::string taget);
+		PresidentialPardonForm( const std::string& taget );
 		PresidentialPardonForm( const PresidentialPardonForm& copy );
 		~PresidentialPardonForm();
 		void				operator=( const PresidentialPardonForm& copy );

@@ -6,7 +6,7 @@
 /*   By: ikulik <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/14 12:54:26 by ikulik            #+#    #+#             */
-/*   Updated: 2025/09/14 12:54:26 by ikulik           ###   ########.fr       */
+/*   Updated: 2025/09/22 14:12:12 by ikulik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,13 @@ int	main()
 	Intern	dave;
 	AForm*	form_1;
 	AForm*	form_2;
-	
+
 	form_1 = dave.makeForm("robotomy request", "nice shrubery");
 	if (form_1)
-		std::cout << "Created " << *form_1 << std::endl;
+	{
+		std::cout << "Created " << *form_1;
+		std::cout << "It's target: " << form_1->getTarget() << std::endl;
+	}
 	form_2 = dave.makeForm("wrong_form", "chocolate cake");
 	if (form_2)
 		std::cout << "Created " << *form_2 << std::endl;

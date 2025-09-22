@@ -6,7 +6,7 @@
 /*   By: ikulik <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/17 17:53:56 by ikulik            #+#    #+#             */
-/*   Updated: 2025/09/19 16:00:43 by ikulik           ###   ########.fr       */
+/*   Updated: 2025/09/22 13:46:09 by ikulik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ class AForm;
 class	ShrubberyCreationForm : public AForm
 {
 	private:
-		std::string	target;
+		const std::string	target;
 	public:
-		ShrubberyCreationForm( std::string taget);
+		ShrubberyCreationForm( const std::string& taget );
 		ShrubberyCreationForm( const ShrubberyCreationForm& copy );
 		~ShrubberyCreationForm();
 		void				operator=( const ShrubberyCreationForm& copy );

@@ -6,7 +6,7 @@
 /*   By: ikulik <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/17 21:00:26 by ikulik            #+#    #+#             */
-/*   Updated: 2025/09/19 15:57:50 by ikulik           ###   ########.fr       */
+/*   Updated: 2025/09/22 13:46:02 by ikulik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ class AForm;
 class	RobotomyRequestForm : public AForm
 {
 	private:
-		std::string	target;
+		const std::string	target;
 	public:
-		RobotomyRequestForm( std::string taget);
+		RobotomyRequestForm( const std::string& taget );
 		RobotomyRequestForm( const RobotomyRequestForm& copy );
 		~RobotomyRequestForm();
 		void				operator=( const RobotomyRequestForm& copy );

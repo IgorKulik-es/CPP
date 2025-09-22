@@ -37,7 +37,7 @@ AForm*	Intern::makePardonForm( std::string target ) const
 AForm*	Intern::makeForm( std::string form_name, std::string target ) const
 {
 	AForm*	result;
-	AForm* (Intern::*makers[3])(std::string) const = {&Intern::makeShrubForm, &Intern::makeRobotForm, &Intern::makePardonForm};
+	AForm*	(Intern::*makers[3])(std::string) const = {&Intern::makeShrubForm, &Intern::makeRobotForm, &Intern::makePardonForm};
 	std::string	maker_names[3] = {"shrubery creation", "robotomy request", "presidential pardon"};
 	for (int i = 0; i < 3; i++)
 	{
