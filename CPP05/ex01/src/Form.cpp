@@ -6,14 +6,15 @@
 /*   By: ikulik <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/17 09:40:50 by ikulik            #+#    #+#             */
-/*   Updated: 2025/09/17 09:40:50 by ikulik           ###   ########.fr       */
+/*   Updated: 2025/09/22 13:36:35 by ikulik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
 #include "Bureaucrat.hpp"
 
-Form::Form( std::string name, int grade_sign, int grade_exec): name(name), grade_sign(grade_sign), grade_exec(grade_exec)
+Form::Form( const std::string& name, int grade_sign, int grade_exec):
+		name(name), grade_sign(grade_sign), grade_exec(grade_exec)
 {
 	if (grade_sign < GRADE_HIGHEST || grade_exec < GRADE_HIGHEST)
 		throw GradeTooHighException();
@@ -35,7 +36,7 @@ void	Form::operator=( const Form& copy)
 std::ostream&	operator<<(std::ostream& os, const Form& form)
 {
 	os << form.getName() << ", grade to sign: " << form.getGradeSign();
-	os << ", form grade to execute: " << form.getGradeExec();
+	os << ", grade to execute: " << form.getGradeExec();
 	if (form.getIsSigned())
 		os << ". It is signed.";
 	else

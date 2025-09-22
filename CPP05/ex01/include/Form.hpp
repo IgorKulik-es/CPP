@@ -6,7 +6,7 @@
 /*   By: ikulik <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/15 11:59:04 by ikulik            #+#    #+#             */
-/*   Updated: 2025/09/15 11:59:04 by ikulik           ###   ########.fr       */
+/*   Updated: 2025/09/22 13:36:13 by ikulik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,10 @@ class	Form
 		const int			grade_exec;
 		bool				is_signed;
 	public:
-		Form( std::string name, int grade_sign, int grade_exec);
+		Form( const std::string& name, int grade_sign, int grade_exec);
 		Form( const Form& copy );
 		~Form();
-		
+
 		void				operator=( const Form& copy );
 		const std::string	getName( void ) const;
 		int					getGradeSign( void ) const;

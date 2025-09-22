@@ -6,7 +6,7 @@
 /*   By: ikulik <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/14 12:54:26 by ikulik            #+#    #+#             */
-/*   Updated: 2025/09/14 12:54:26 by ikulik           ###   ########.fr       */
+/*   Updated: 2025/09/22 13:34:12 by ikulik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ int	main()
 
 	std::cout << "Instantiated: " << dave << std::endl;
 	std::cout << "Instantiated: " << form_1 << std::endl;
+	std::cout << "Instantiating a form below the lowest grade:\t";
 	try
 	{
 		Form	form_2("Some other form", 0, 160);
@@ -33,6 +34,7 @@ int	main()
 	Bureaucrat	guy("Philip J. Fry", 90);
 	Form		form_2("Spaceship parts requistion form", 70, 30);
 
+	std::cout << "Signing a form with insufficient grade:" << std::endl;
 	guy.signForm(form_2);
 	return (0);
 }

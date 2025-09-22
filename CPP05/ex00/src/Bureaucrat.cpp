@@ -6,13 +6,13 @@
 /*   By: ikulik <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/13 16:46:35 by ikulik            #+#    #+#             */
-/*   Updated: 2025/09/13 16:46:35 by ikulik           ###   ########.fr       */
+/*   Updated: 2025/09/22 13:28:03 by ikulik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat( std::string name, int grade): name(name)
+Bureaucrat::Bureaucrat( const std::string& name, int grade ): name(name)
 {
 	if (grade < GRADE_HIGHEST)
 		throw GradeTooHighException();
@@ -21,17 +21,17 @@ Bureaucrat::Bureaucrat( std::string name, int grade): name(name)
 	this->grade = grade;
 }
 
-Bureaucrat::Bureaucrat( const Bureaucrat& copy): name(copy.getName())
+Bureaucrat::Bureaucrat( const Bureaucrat& copy ): name(copy.getName())
 {
 	*this = copy;
 }
 
-void	Bureaucrat::operator=( const Bureaucrat& copy)
+void	Bureaucrat::operator=( const Bureaucrat& copy )
 {
 	this->grade = copy.getGrade();
 }
 
-std::ostream&	operator<<(std::ostream& os, const Bureaucrat& bur)
+std::ostream&	operator<<(std::ostream& os, const Bureaucrat& bur )
 {
 	os << bur.getName() << ", bureaucrat grade " << bur.getGrade() << ".";
 	return (os);

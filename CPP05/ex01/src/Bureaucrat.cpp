@@ -6,14 +6,14 @@
 /*   By: ikulik <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/13 16:46:35 by ikulik            #+#    #+#             */
-/*   Updated: 2025/09/13 16:46:35 by ikulik           ###   ########.fr       */
+/*   Updated: 2025/09/22 13:28:32 by ikulik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
 
-Bureaucrat::Bureaucrat( std::string name, int grade): name(name)
+Bureaucrat::Bureaucrat( const std::string& name, int grade): name(name)
 {
 	if (grade < GRADE_HIGHEST)
 		throw GradeTooHighException();

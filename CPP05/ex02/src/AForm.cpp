@@ -6,14 +6,14 @@
 /*   By: ikulik <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/17 17:51:25 by ikulik            #+#    #+#             */
-/*   Updated: 2025/09/17 17:51:25 by ikulik           ###   ########.fr       */
+/*   Updated: 2025/09/22 13:42:47 by ikulik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AForm.hpp"
 #include "Bureaucrat.hpp"
 
-AForm::AForm( std::string name, int grade_sign, int grade_exec): name(name), grade_sign(grade_sign), grade_exec(grade_exec)
+AForm::AForm( const std::string& name, int grade_sign, int grade_exec): name(name), grade_sign(grade_sign), grade_exec(grade_exec)
 {
 	if (grade_sign < GRADE_HIGHEST || grade_exec < GRADE_HIGHEST)
 		throw GradeTooHighException();

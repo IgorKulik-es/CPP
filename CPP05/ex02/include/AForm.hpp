@@ -6,7 +6,7 @@
 /*   By: ikulik <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/17 17:50:01 by ikulik            #+#    #+#             */
-/*   Updated: 2025/09/19 16:04:38 by ikulik           ###   ########.fr       */
+/*   Updated: 2025/09/22 13:42:52 by ikulik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class	AForm
 		const int			grade_exec;
 		bool				is_signed;
 	public:
-		AForm( std::string name, int grade_sign, int grade_exec);
+		AForm( const std::string& name, int grade_sign, int grade_exec);
 		AForm( const AForm& copy );
 		virtual ~AForm();
 
