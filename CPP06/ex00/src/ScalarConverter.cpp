@@ -6,7 +6,7 @@
 /*   By: ikulik <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/18 12:21:01 by ikulik            #+#    #+#             */
-/*   Updated: 2025/09/18 18:04:32 by ikulik           ###   ########.fr       */
+/*   Updated: 2025/09/22 16:48:23 by ikulik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,7 +129,7 @@ void	ScalarConverter::print_float( float f )
 void	ScalarConverter::print_double( double d )
 {
 	std::cerr << "Identified type: double" << std::endl;
-	std::cout << "char:\t'";
+	std::cout << "char:\t";
 	correct_char(static_cast<char>(d));
 	std::cout << "int:\t";
 	correct_int(d);
@@ -140,9 +140,9 @@ void	ScalarConverter::print_double( double d )
 void	ScalarConverter::correct_char(char c)
 {
 	if (isprint(c))
-		std::cout << c << "'" << std::endl;
+		std::cout  << "'" << c << "'" << std::endl;
 	else
-		std::cout << "imposible" << "'" << std::endl;
+		std::cout << "imposible" << std::endl;
 }
 
 void	ScalarConverter::correct_int(double d)

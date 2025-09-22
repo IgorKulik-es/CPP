@@ -6,7 +6,7 @@
 /*   By: ikulik <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/18 12:15:27 by ikulik            #+#    #+#             */
-/*   Updated: 2025/09/18 18:14:51 by ikulik           ###   ########.fr       */
+/*   Updated: 2025/09/22 16:45:18 by ikulik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,13 +34,13 @@ class	ScalarConverter
 		static void	print_float( float f );
 		static void	print_double( double d );
 		static void	correct_char( char c );
-		static void	correct_int(double d);
+		static void	correct_int( double d );
 	public:
 		ScalarConverter();
 		ScalarConverter( const ScalarConverter& copy );
 		virtual ~ScalarConverter() = 0;
 		void		operator=( const ScalarConverter& copy );
-		static void	convert(std::string number);
+		static void	convert( std::string number );
 };
 
 #endif
