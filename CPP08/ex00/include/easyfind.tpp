@@ -6,19 +6,20 @@
 /*   By: ikulik <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/19 13:22:38 by ikulik            #+#    #+#             */
-/*   Updated: 2025/09/19 18:14:39 by ikulik           ###   ########.fr       */
+/*   Updated: 2025/09/23 19:04:32 by ikulik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
-template <template <int> typename T>
-const T::iterator	easyfind(const T& arr, int idx)
+template <typename T>
+typename T::iterator	easyfind( T& arr, int num )
 {
-	T&	first_find;
+	typename T::iterator	iter_find;
 
-	first_find = T.find(idx);
-	if (first_find != T.end())
-		return (first_find);
-	return (0);
+	iter_find = std::find(arr.begin(), arr.end(), num);
+	if (iter_find != arr.end())
+		return (iter_find);
+	throw 0;
+	return (iter_find);
 }
 

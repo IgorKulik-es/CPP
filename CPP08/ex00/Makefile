@@ -6,7 +6,7 @@
 #    By: ikulik <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/04 13:34:13 by vtrofyme          #+#    #+#              #
-#    Updated: 2025/09/19 18:05:44 by ikulik           ###   ########.fr        #
+#    Updated: 2025/09/23 17:24:28 by ikulik           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ SRCS		= $(MAINSRC)
 
 OBJS		= $(SRCS:$(SRCSDIR)/%.cpp=$(OBJDIR)/%.o)
 
-CFLAGS		= -Wall -Wextra -Werror -std=c++98 -g3
+CFLAGS		= -Wall -Wextra -Werror -std=c++98
 INCLUDES	= -I$(INCLUDE)
 CC			= c++
 
