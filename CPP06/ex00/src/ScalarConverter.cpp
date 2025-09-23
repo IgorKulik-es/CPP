@@ -6,7 +6,7 @@
 /*   By: ikulik <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/18 12:21:01 by ikulik            #+#    #+#             */
-/*   Updated: 2025/09/22 16:48:23 by ikulik           ###   ########.fr       */
+/*   Updated: 2025/09/23 12:49:17 by ikulik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ void	ScalarConverter::convert( std::string number )
 void	ScalarConverter::print_char( char c )
 {
 	std::cout << "Identified type: char" << std::endl;
-	std::cout << "char:\t'";
+	std::cout << "char:\t";
 	correct_char(c);
 	std::cout << "int:\t" << static_cast<int>(c) << std::endl;
 	std::cout << "float:\t" << static_cast<float>(c) << std::endl;
@@ -108,7 +108,7 @@ void	ScalarConverter::print_char( char c )
 void	ScalarConverter::print_int( int i )
 {
 	std::cout << "Identified type: int" << std::endl;
-	std::cout << "char:\t'";
+	std::cout << "char:\t";
 	correct_char(static_cast<char>(i));
 	std::cout << "int:\t" << i << std::endl;
 	std::cout << "float:\t" << static_cast<float>(i) << std::endl;
@@ -118,7 +118,7 @@ void	ScalarConverter::print_int( int i )
 void	ScalarConverter::print_float( float f )
 {
 	std::cerr << "Identified type: float" << std::endl;
-	std::cout << "char:\t'";
+	std::cout << "char:\t";
 	correct_char(static_cast<char>(f));
 	std::cout << "int:\t";
 	correct_int(f);
@@ -147,7 +147,7 @@ void	ScalarConverter::correct_char(char c)
 
 void	ScalarConverter::correct_int(double d)
 {
-	if (std::isnormal(d))
+	if (std::isfinite(d))
 		std::cout << static_cast<int>(d) << std::endl;
 	else
 		std::cout << "imposible" << std::endl;

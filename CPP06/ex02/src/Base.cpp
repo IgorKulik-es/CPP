@@ -6,7 +6,7 @@
 /*   By: ikulik <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/18 18:18:05 by ikulik            #+#    #+#             */
-/*   Updated: 2025/09/18 19:41:43 by ikulik           ###   ########.fr       */
+/*   Updated: 2025/09/23 13:11:59 by ikulik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ Base::~Base(){};
 
 Base* generate(void)
 {
-	srand(time(0));
 	switch (rand() % 3)
 	{
 	case 0:
@@ -36,14 +35,21 @@ Base* generate(void)
 
 void identify(Base* p)
 {
-	if (dynamic_cast<A*>(p))
-		std::cout << "Pointer to class A" << std::endl;
-	else if (dynamic_cast<B*>(p))
-		std::cout << "Pointer to class B" << std::endl;
-	else if (dynamic_cast<C*>(p))
-		std::cout << "Pointer to class C" << std::endl;
-	else
+	try
+	{
+		if (dynamic_cast<A*>(p))
+			std::cout << "Pointer to class A" << std::endl;
+		else if (dynamic_cast<B*>(p))
+			std::cout << "Pointer to class B" << std::endl;
+		else if (dynamic_cast<C*>(p))
+			std::cout << "Pointer to class C" << std::endl;
+		else
+			std::cerr << "Invalid pointer!" << std::endl;
+	}
+	catch(const std::exception& e)
+	{
 		std::cerr << "Invalid pointer!" << std::endl;
+	}
 }
 
 void identify(Base& p)

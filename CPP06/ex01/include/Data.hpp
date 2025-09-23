@@ -6,7 +6,7 @@
 /*   By: ikulik <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/18 18:28:58 by ikulik            #+#    #+#             */
-/*   Updated: 2025/09/18 18:55:22 by ikulik           ###   ########.fr       */
+/*   Updated: 2025/09/23 12:56:55 by ikulik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ typedef struct s_data
 {
 	public:
 		int		x;
-		char	c_1;
 		int		y;
+		char	c_1;
 		char	c_2;
 }				Data;
 

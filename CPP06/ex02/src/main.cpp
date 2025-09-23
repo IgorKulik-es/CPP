@@ -6,7 +6,7 @@
 /*   By: ikulik <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/14 12:54:26 by ikulik            #+#    #+#             */
-/*   Updated: 2025/09/18 19:42:29 by ikulik           ###   ########.fr       */
+/*   Updated: 2025/09/23 13:20:07 by ikulik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ int	main( void )
 {
 	Base*	ptr_base;
 
+	srand(time(0));
 	ptr_base = generate();
 	identify(ptr_base);
 	identify(*ptr_base);
