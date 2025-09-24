@@ -6,13 +6,15 @@
 /*   By: ikulik <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 19:35:34 by ikulik            #+#    #+#             */
-/*   Updated: 2025/09/23 20:01:57 by ikulik           ###   ########.fr       */
+/*   Updated: 2025/09/24 14:54:15 by ikulik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #ifndef SPAN_HPP
 # define SPAN_HPP
+# define __STDC_LIMIT_MACROS
+# include <stdint.h>
 # include <vector>
 # include <algorithm>
 # include <iostream>
@@ -29,13 +31,14 @@ class Span
 		~Span();
 		Span&				operator=( const Span& copy );
 		unsigned int		getMaxN( void ) const;
-		std::vector<int>&	getContent ( void ) const;
+		const std::vector<int>&	getContent ( void ) const;
 
 		void	addNumber( int num_add );
-		void	shortestSpan( void ) const;
-		void	longestSpan( void ) const;
+		int	shortestSpan( void ) const;
+		int	longestSpan( void ) const;
+		void	addSpan( std::vector<int>::const_iterator first, std::vector<int>::const_iterator last );
 
-		class InsufficientSize: std::exception
+		class InsufficientSize: public std::exception
 		{
 			public:
 				const char*	what() const throw();

@@ -6,13 +6,13 @@
 #    By: ikulik <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/04 13:34:13 by vtrofyme          #+#    #+#              #
-#    Updated: 2025/09/23 17:24:28 by ikulik           ###   ########.fr        #
+#    Updated: 2025/09/24 14:50:47 by ikulik           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= easyfind
+NAME		= Span
 
-MAIN		= main.cpp
+MAIN		= main.cpp Span.cpp
 MAINDIR		= src
 MAINSRC		= $(addprefix $(MAINDIR)/, $(MAIN))
 SRCSDIR		= src
