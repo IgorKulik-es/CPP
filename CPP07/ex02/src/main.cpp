@@ -6,7 +6,7 @@
 /*   By: ikulik <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/19 14:57:22 by ikulik            #+#    #+#             */
-/*   Updated: 2025/09/19 15:50:37 by ikulik           ###   ########.fr       */
+/*   Updated: 2025/09/24 12:57:47 by ikulik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,8 @@ int main(int, char **)
 			return 1;
 		}
 	}
-	std::cout << "The two arrays \"numbers\" and \"mirror\" coinside" << std::endl;
+	std::cout << "The two arrays \"numbers\" and \"mirror\" are the same" << std::endl;
+	std::cout << "Trying to access out-of-range elements: " << std::endl;
 	try
 	{
 		numbers[-2] = 0;
