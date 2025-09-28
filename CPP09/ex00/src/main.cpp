@@ -21,6 +21,9 @@ int main(int argc, char** argv)
 		return (EXIT_FAILURE);
 	(void)argv;
 	if (argc <= 1)
+	{
 		std::cerr << "Error: too few arguments" << std::endl;
+		return (EXIT_FAILURE);
+	}
 	return (price_table.printValues(argv[1]));
 }

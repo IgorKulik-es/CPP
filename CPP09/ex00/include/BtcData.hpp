@@ -13,7 +13,6 @@
 #ifndef BTC_DATA_HPP
 # define BTC_DATA_HPP
 # include <map>
-# include <algorithm>
 # include <iostream>
 # include <fstream>
 # include <sstream>
