@@ -6,7 +6,7 @@
 /*   By: ikulik <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/19 13:22:38 by ikulik            #+#    #+#             */
-/*   Updated: 2025/09/23 19:04:32 by ikulik           ###   ########.fr       */
+/*   Updated: 2025/09/29 15:09:46 by ikulik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ typename T::iterator	easyfind( T& arr, int num )
 	iter_find = std::find(arr.begin(), arr.end(), num);
 	if (iter_find != arr.end())
 		return (iter_find);
-	throw 0;
+	throw NO_VALUE_FOUND;
 	return (iter_find);
 }
 
