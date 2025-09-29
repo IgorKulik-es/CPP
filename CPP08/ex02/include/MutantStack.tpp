@@ -6,14 +6,13 @@
 /*   By: ikulik <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/25 13:08:18 by ikulik            #+#    #+#             */
-/*   Updated: 2025/09/25 14:04:40 by ikulik           ###   ########.fr       */
+/*   Updated: 2025/09/29 14:41:16 by ikulik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 template <typename T>
 MutantStack<T>::MutantStack(): std::stack<T>()
 {
-	std::cout << "Hello!" << std::endl;
 };
 
 template <typename T>

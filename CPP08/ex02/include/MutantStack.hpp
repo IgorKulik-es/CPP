@@ -6,13 +6,14 @@
 /*   By: ikulik <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/25 12:45:35 by ikulik            #+#    #+#             */
-/*   Updated: 2025/09/25 14:04:45 by ikulik           ###   ########.fr       */
+/*   Updated: 2025/09/29 14:46:38 by ikulik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MUTANTSTACK_HPP
 # define MUTANTSTACK_HPP
 # include <stack>
+# include <list>
 # include <deque>
 # include <iostream>
 
