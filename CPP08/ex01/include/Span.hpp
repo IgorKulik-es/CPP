@@ -6,7 +6,7 @@
 /*   By: ikulik <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 19:35:34 by ikulik            #+#    #+#             */
-/*   Updated: 2025/09/24 14:54:15 by ikulik           ###   ########.fr       */
+/*   Updated: 2025/09/29 13:37:53 by ikulik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,11 @@ class Span
 		void	addSpan( std::vector<int>::const_iterator first, std::vector<int>::const_iterator last );
 
 		class InsufficientSize: public std::exception
+		{
+			public:
+				const char*	what() const throw();
+		};
+		class TooFewMembers: public std::exception
 		{
 			public:
 				const char*	what() const throw();

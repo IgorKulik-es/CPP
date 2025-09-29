@@ -6,7 +6,7 @@
 /*   By: ikulik <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/19 14:57:22 by ikulik            #+#    #+#             */
-/*   Updated: 2025/09/24 16:47:25 by ikulik           ###   ########.fr       */
+/*   Updated: 2025/09/29 14:34:36 by ikulik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,5 +77,29 @@ int main()
 	{
 		std::cerr << e.what() << '\n';
 	}
+
+	std::cout << "Trying to find span in too small an array:" << std::endl;
+	Span	micro(1);
+
+	micro.addNumber(3);
+	try
+	{
+		std::cout << micro.shortestSpan();
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << "Shortest span failed with: " << e.what() << '\n';
+	}
+
+	std::cout << "Testing a span with 10000 members:" << std::endl;
+	Span	large(100000);
+
+	for (int i= 0; i < 100000; i++)
+	{
+		large.addNumber(i);
+	}
+	std::cout << "Longest span of large array: " << large.longestSpan() << std::endl;
+	std::cout << "Shortest span of large array: " << large.shortestSpan() << std::endl;
+
 	return 0;
 }

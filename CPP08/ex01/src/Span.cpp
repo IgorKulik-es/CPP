@@ -6,7 +6,7 @@
 /*   By: ikulik <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 19:44:11 by ikulik            #+#    #+#             */
-/*   Updated: 2025/09/25 12:24:38 by ikulik           ###   ########.fr       */
+/*   Updated: 2025/09/29 14:33:49 by ikulik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,11 +52,14 @@ void	Span::addNumber( int num_add )
 int	Span::shortestSpan( void ) const
 {
 	std::vector<int>			copy = this->content;
-	std::vector<int>::iterator	iter = (copy.begin())++;
+	std::vector<int>::iterator	iter;
 	int							min_diff = INT32_MAX;
 	int							current_diff;
 
+	if (this->content.size() < 2)
+		throw TooFewMembers();
 	std::sort(copy.begin(), copy.end());
+	iter = copy.begin() + 1;
 	for ( ; iter < copy.end(); iter++)
 	{
 		current_diff = abs(*(iter - 1) - *iter);
@@ -72,6 +75,8 @@ int	Span::longestSpan( void ) const
 	std::vector<int>::const_iterator	end;
 	int									max_diff;
 
+	if (this->content.size() < 2)
+		throw TooFewMembers();
 	start = this->content.begin();
 	end = this->content.end();
 	max_diff = *(std::max_element(start, end)) - *(std::min_element(start, end));
@@ -91,4 +96,9 @@ void	Span::addSpan( std::vector<int>::const_iterator first, std::vector<int>::co
 const char*	Span::InsufficientSize::what() const throw()
 {
 	return ("Span::InsufficentSize");
+}
+
+const char*	Span::TooFewMembers::what() const throw()
+{
+	return ("Span::TooFewMembers");
 }
