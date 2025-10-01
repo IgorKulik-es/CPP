@@ -19,10 +19,14 @@
 template <typename T, typename T::iterator>
 void	pmergesort( typename T::iterator start, typename T::iterator end );
 
-template <typename Container>
+template <typename T, typename T::iterator>
 class Pmergeme
 {
+	private:
+		T	base;
 	public:
+		T*		get_numbers(int argc, char ** argv);
+		void	
 
 }
 
