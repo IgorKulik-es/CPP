@@ -10,9 +10,10 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=  PmergeMe
+NAME		= PmergeMe
+TEST		= tester
 
-MAIN		= main.cpp
+MAIN		= test.cpp
 MAINDIR		= src
 MAINSRC		= $(addprefix $(MAINDIR)/, $(MAIN))
 SRCSDIR		= src
@@ -23,7 +24,7 @@ SRCS		= $(MAINSRC)
 
 OBJS		= $(SRCS:$(SRCSDIR)/%.cpp=$(OBJDIR)/%.o)
 
-CFLAGS		= -Wall -Wextra -Werror -std=c++98
+CFLAGS		= -Wall -Wextra -Werror -std=c++98 -g3
 INCLUDES	= -I$(INCLUDE)
 CC			= c++
 
@@ -31,8 +32,13 @@ RM = rm -rf
 
 all: $(NAME)
 
+test: fclean  $(TEST) $(OBJDIR) $(OBJS)
+
 $(NAME): $(OBJDIR) $(OBJS)
 	@$(CC) $(OBJS) $(LIBRARY) $(INCLUDES) -o $(NAME)
+
+$(TEST): $(OBJDIR) $(OBJS)
+	@$(CC) $(OBJS) $(LIBRARY) $(INCLUDES) -o $(TEST)
 
 $(OBJDIR)/%.o: $(SRCSDIR)/%.cpp
 	@mkdir -p $(dir $@)

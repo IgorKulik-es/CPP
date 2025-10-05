@@ -21,6 +21,9 @@ template <typename T, typename Iterator>
 int	PmergeMe<T, Iterator>::pair_size = 2;
 
 template <typename T, typename Iterator>
+int	PmergeMe<T, Iterator>::half_pair = 1;
+
+template <typename T, typename Iterator>
 PmergeMe<T, Iterator>::PmergeMe( const PmergeMe<T, Iterator>& copy )
 {
 	*this = copy;
@@ -82,14 +85,20 @@ template <typename T, typename Iterator>
 void	PmergeMe<T, Iterator>::sort( )
 {
 	this->sort_pairs();
+	std::cout << "Pair size "<< pair_size <<" after sorting pairs ";
+	this->print_numbers();
 	pair_size *= 2;
-	if (pair_size < this->half_size)
+	half_pair *= 2;
+	if (pair_size <= this->size)
 		this->sort();
 	pair_size /= 2;
+	half_pair /= 2;
 
 	T	tail;
-	extract_tail(tail, pair_size);
+	extract_tail(tail);
 	insert_tail(tail);
+	std::cout << "Pair size " << pair_size << " after insertion\t";
+	this->print_numbers();
 }
 
 template <typename T, typename Iterator>
@@ -97,11 +106,10 @@ void	PmergeMe<T, Iterator>::sort_pairs( void )
 {
 	Iterator	iter;
 	Iterator	midle;
-	int			half_pair = this->pair_size / 2;
 	int			num_pairs = this->base.size() / pair_size;
 	int			position = pair_size - 1;
 
-	for (int i = 1; i < num_pairs; i++)
+	for (int i = 0; i < num_pairs; i++)
 	{
 		iter = this->base.begin();
 		std::advance(iter, position);
@@ -109,7 +117,7 @@ void	PmergeMe<T, Iterator>::sort_pairs( void )
 		std::advance(midle, - half_pair);
 		if (*iter < *midle)
 		{
-			std::advance(iter, - pair_size);
+			std::advance(iter, -pair_size + 1);
 			std::advance(midle, 1);
 			move_pair(this->base, iter, this->base, midle, half_pair, this->mode);
 		}
@@ -128,29 +136,34 @@ void	PmergeMe<T, Iterator>::move_pair( T& where, Iterator target, T& other, Iter
 	{ */
 		T	temp;
 		Iterator	last = first;
-		std::advance(last, size - 1);
+		std::advance(last, size);
 
-		temp.insert(temp.begin(), first, last);
+		temp.insert(temp.end(), first, last);
 		other.erase(first, last);
 		last = temp.end();
-		std::advance(last, -1);
-		where.insert(target, temp.begin(), temp.end() - 1);
+		where.insert(target, temp.begin(), last);
 /* 	} */
 }
 
 template <typename T, typename Iterator>
-void	PmergeMe<T, Iterator>::extract_tail( T& tail, int pair_size)
+void	PmergeMe<T, Iterator>::extract_tail( T& tail )
 {
-	int			position = pair_size + pair_size;
-	int			last_pair = this->size - pair_size;
+	int			position = pair_size;
+	int			pairs_to_extract = this->size / pair_size - 1;
 	Iterator	take_out;
 
-	while (position <= last_pair)
+	(void)tail;
+	if (this->size % pair_size >= half_pair)
+		pairs_to_extract++;
+	std::cout << "Extracting pos " << position << " last pair " << pairs_to_extract << std::endl;
+	while (pairs_to_extract > 0)
 	{
 		take_out = this->base.begin();
 		std::advance(take_out, position);
-		move_pair(tail, tail.end(), this->base, take_out, pair_size, this->mode);
-		position += pair_size;
+		std::cout << "Moving " << *take_out << std::endl;
+		move_pair(tail, tail.end(), this->base, take_out, half_pair, this->mode);
+		position += half_pair;
+		pairs_to_extract--;
 	}
 }
 
@@ -158,23 +171,25 @@ template <typename T, typename Iterator>
 void	PmergeMe<T, Iterator>::insert_tail( T& tail )
 {
 	int	idx_jacob = 3;
-	int	jacob = 3;
+	int	jacob = 1;
 	int	step_jacob = 2;
-	int	pairs_left = tail.size() / pair_size;
+	int	pairs_left = tail.size() / half_pair;
 	std::vector<int>	distances;
 
-	while (!tail.empty())
+	while (pairs_left)
 	{
 		if (step_jacob > pairs_left)
 			step_jacob = pairs_left;
 		assign_tail_pos(distances, jacob + 1, step_jacob);
+		std::cout << "Dists " << distances[0] << " step " << step_jacob << std::endl;
 		for (int i = step_jacob; i > 0; i--)
 			this->insert_one_pair(tail, distances, i);
+		std::cout << "HI\n";
+		distances.clear();
 		pairs_left -= step_jacob;
 		step_jacob = jacob;
 		jacob = jacobsthal(++idx_jacob);
 		step_jacob = jacob - step_jacob;
-
 	}
 }
 
@@ -200,38 +215,36 @@ int	PmergeMe<T, Iterator>::jacobsthal( int n)
 template <typename T, typename Iterator>
 Iterator	PmergeMe<T, Iterator>::binary_search( Iterator value, Iterator start, Iterator end )
 {
-	Iterator	current = this->base.begin();
+	Iterator	current = start;
 	int			dist;
 
-	dist = std::distance(start, end);
+	dist = std::distance(start, end) / half_pair;
 	if (dist == 0)
 		return (start);
-	std::advance(current,  (dist / 2) * pair_size);
+	std::advance(current, (dist / 2) * half_pair);
 	if (*value < *current)
 	{
 		if (dist == 1)
 			return (start);
-		std::advance(current, -1);
 		return (this->binary_search(value, start, current));
 	}
 	else
 	{
 		if (dist == 1)
 			return (end);
-		std::advance(current, 1);
 		return (this->binary_search(value, current, end));
 	}
 }
 
 template <typename T, typename Iterator>
-void	PmergeMe<T, Iterator>::assign_tail_pos( std::vector<int> distances, int min_dist, int size )
+void	PmergeMe<T, Iterator>::assign_tail_pos( std::vector<int>& distances, int min_dist, int size )
 {
 	for (int i = 0; i < size; i++)
-		distances[i] = min_dist + i;
+		distances.push_back(min_dist + i);
 }
 
 template <typename T, typename Iterator>
-void	PmergeMe<T, Iterator>::update_tail_pos( std::vector<int> distances, int added_pos, int size )
+void	PmergeMe<T, Iterator>::update_tail_pos( std::vector<int>& distances, int added_pos, int size )
 {
 	for (int i = 0; i < size; i++)
 	{
@@ -250,17 +263,19 @@ void	PmergeMe<T, Iterator>::insert_one_pair( T& tail, std::vector<int>& distance
 	Iterator	end;
 
 	to_find = tail.begin();
-	std::advance(to_find, pos * pair_size - 1);
+	std::advance(to_find, pos * half_pair - 1);
 	start = this->base.begin();
-	std::advance(start, pair_size - 1);
+	std::advance(start, half_pair - 1);
 	end = this->base.begin();
-	std::advance(end, distances[pos - 1] * pair_size - 1);
+	std::advance(end, distances[pos - 1] * half_pair);
+	//std::cout << "Looking for " << *to_find	<< " within " << *start << " " << *end << std::endl;
 	to_insert = this->binary_search(to_find, start, end);
-	update_tail_pos(distances, std::distance(this->base.begin(), to_insert) / pair_size, pos - 1);
-	std::advance(to_insert, -pair_size + 1);
+	update_tail_pos(distances, (std::distance(this->base.begin(), to_insert) + 1) / half_pair, pos - 1);
+	std::cout << " Found place: " << *to_insert << std::endl;
+	std::advance(to_insert, -half_pair + 1);
 	start = to_find;
-	std::advance(start, -pair_size + 1);
-	move_pair(to_insert, tail, start, pair_size, this->mode);
+	std::advance(start, -half_pair + 1);
+	move_pair(this->base, to_insert, tail, start, half_pair, this->mode);
 }
 
 template <typename T, typename Iterator>

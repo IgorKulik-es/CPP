@@ -33,10 +33,12 @@ int main(int argc, char** argv)
 	//trying the same sort with list
 	PmergeMe<std::list<int>, std::list<int>::iterator>	sorter_list(M_LIST);
 
+	sorter_list.scan_numbers(argc, argv);
 	gettimeofday(&time_v, NULL);
 	timer = time_v.tv_sec * MILLISEC + time_v.tv_usec;
 	sorter_list.sort();
 	gettimeofday(&time_v, NULL);
 	timer = time_v.tv_sec * MILLISEC + time_v.tv_usec - timer;
 	std::cout << "Time to process a range of " << sorter_list.getSize() << " elements with std::list:\t" << timer << ".\n";
+	sorter_list.print_numbers();
 }

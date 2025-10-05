@@ -13,7 +13,6 @@
 #ifndef PMERGEME_HPP
 # define PMERGEME_HPP
 # include <list>
-# include <deque>
 # include <vector>
 # include <iostream>
 # include <exception>
@@ -32,18 +31,19 @@ class PmergeMe
 		int			size;
 		int			half_size;
 		static int	pair_size;
+		static int	half_pair;
 		int			mode;
+		static int	jacobsthal( int n);
+	public:
 		void		insert_tail( T& tail);
 		void		sort_pairs( void );
 		static void	move_pair( T& where, Iterator target, T& other, Iterator first, int size, int mode );
-		static void	assign_tail_pos( std::vector<int> distances, int min_dist, int size );
-		static void	update_tail_pos( std::vector<int> distances, int added_pos, int size );
+		static void	assign_tail_pos( std::vector<int>& distances, int min_dist, int size );
+		static void	update_tail_pos( std::vector<int>& distances, int added_pos, int size );
 		static void	store_tail_pos_list( Iterator *pairs);
-		void		extract_tail( T& tail, int pair_size);
+		void		extract_tail( T& tail );
 		Iterator	binary_search( Iterator value, Iterator start, Iterator end );
 		void		insert_one_pair( T& tail, std::vector<int>& distances, int pos);
-		static int	jacobsthal( int n);
-	public:
 		PmergeMe( int mode );
 		PmergeMe( const PmergeMe& other );
 		~PmergeMe();

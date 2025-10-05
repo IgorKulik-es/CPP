@@ -1,0 +1,54 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+
+        {
+            "name": "Launch The Rocket",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/CPP09/ex02/tester",
+            "args": ["${input:arg1}", "${input:arg2}", "${input:arg3}", "${input:arg4}"],
+            "stopAtEntry": true,
+            "cwd": "${fileDirname}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "miDebuggerPath": "/usr/bin/gdb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                },
+                {
+                    "description": "Set Disassembly Flavor to Intel",
+                    "text": "-gdb-set disassembly-flavor intel",
+                    "ignoreFailures": true
+                }
+            ]
+
+        }
+    ],
+    "inputs": [
+        {
+            "id": "arg1",
+            "type": "promptString",
+            "description": "Enter first argument"
+        },
+        {
+            "id": "arg2",
+            "type": "promptString",
+            "description": "Enter second argument"
+        },
+        {
+            "id": "arg3",
+            "type": "promptString",
+            "description": "Enter third argument"
+        },
+        {
+            "id": "arg4",
+            "type": "promptString",
+            "description": "Enter fourth argument"
+        }
+    ]
+}
