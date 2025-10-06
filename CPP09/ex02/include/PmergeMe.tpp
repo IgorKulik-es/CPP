@@ -181,10 +181,8 @@ void	PmergeMe<T, Iterator>::insert_tail( T& tail )
 		if (step_jacob > pairs_left)
 			step_jacob = pairs_left;
 		assign_tail_pos(distances, jacob + 1, step_jacob);
-		std::cout << "Dists " << distances[0] << " step " << step_jacob << std::endl;
 		for (int i = step_jacob; i > 0; i--)
 			this->insert_one_pair(tail, distances, i);
-		std::cout << "HI\n";
 		distances.clear();
 		pairs_left -= step_jacob;
 		step_jacob = jacob;
@@ -231,7 +229,11 @@ Iterator	PmergeMe<T, Iterator>::binary_search( Iterator value, Iterator start, I
 	else
 	{
 		if (dist == 1)
+		{
+			if (*current > *end)
+				std::advance(end, 1);
 			return (end);
+		}
 		return (this->binary_search(value, current, end));
 	}
 }
@@ -267,7 +269,8 @@ void	PmergeMe<T, Iterator>::insert_one_pair( T& tail, std::vector<int>& distance
 	start = this->base.begin();
 	std::advance(start, half_pair - 1);
 	end = this->base.begin();
-	std::advance(end, distances[pos - 1] * half_pair);
+	std::advance(end, distances[pos - 1] * half_pair - 1);
+	std::cout << "Advancing by " << distances[pos - 1] << " end " << *end << " main size " << this->base.size() << std::endl;
 	//std::cout << "Looking for " << *to_find	<< " within " << *start << " " << *end << std::endl;
 	to_insert = this->binary_search(to_find, start, end);
 	update_tail_pos(distances, (std::distance(this->base.begin(), to_insert) + 1) / half_pair, pos - 1);
