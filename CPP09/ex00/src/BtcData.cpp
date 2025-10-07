@@ -216,22 +216,14 @@ void	BtcData::printOneLine( const std::string& line )
 
 float	BtcData::findClosestPrice( const std::string& date)
 {
-	std::map<std::string, float>::iterator	iter;
-	std::map<std::string, float>::iterator	end;
 	std::map<std::string, float>::iterator	find;
 
-	iter = this->data.begin();
-	end = this->data.end();
-	find = this->data.find(date);
-	if (find != this->data.end())
-		return (find->second);
-	if (date < iter->first)
+	if (date < this->data.begin()->first)
 	{
 		std::cerr << "Error: bad input => " << date << std::endl;
 		return (VALUE_FAILURE);
 	}
-	while (iter != end && date > iter->first)
-		iter++;
-	iter--;
-	return (iter->second);
+	find = this->data.upper_bound(date);
+	find--;
+	return (find->second);
 }
