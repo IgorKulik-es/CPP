@@ -6,14 +6,14 @@
 #    By: ikulik <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/04 13:34:13 by vtrofyme          #+#    #+#              #
-#    Updated: 2025/10/02 19:10:42 by ikulik           ###   ########.fr        #
+#    Updated: 2025/10/07 17:13:34 by ikulik           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		= PmergeMe
 TEST		= tester
 
-MAIN		= test.cpp
+MAIN		= main.cpp
 MAINDIR		= src
 MAINSRC		= $(addprefix $(MAINDIR)/, $(MAIN))
 SRCSDIR		= src
