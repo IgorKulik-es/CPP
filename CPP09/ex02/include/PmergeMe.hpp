@@ -13,10 +13,8 @@
 #ifndef PMERGEME_HPP
 # define PMERGEME_HPP
 # include <list>
-# include <deque>
 # include <vector>
 # include <iostream>
-# include <exception>
 # include <cstdlib>
 # include <sys/time.h>
 # define MILLISEC 1000000
@@ -35,18 +33,18 @@ class PmergeMe
 		static int	jacobsthal( int n);
 		void		insert_tail( T& tail);
 		void		sort_pairs( void );
+		static void	move_pair( T& where, Iterator target, T& other, Iterator first, int size );
 		static void	assign_tail_pos( std::vector<int>& distances, int min_dist, int size );
 		void	update_tail_pos( std::vector<int>& distances, int added_pos, int size );
 		void		extract_tail( T& tail );
 		Iterator	binary_search( Iterator value, Iterator start, Iterator end, Iterator very_end );
 		void		insert_one_pair( T& tail, std::vector<int>& distances, int pos);
 	public:
-		void	move_pair( T& where, Iterator target, T& other, Iterator first, int size );
 		PmergeMe();
 		PmergeMe( const PmergeMe& other );
 		~PmergeMe();
 		PmergeMe&	operator=( const PmergeMe& other);
-		/* const  */T&	getBase( void ) ;//const;
+		const T&	getBase( void ) const;
 		int			getSize( void ) const;
 		static int	getNumComps( void );
 		static void	resetNumOps( void );

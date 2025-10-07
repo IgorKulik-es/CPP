@@ -31,10 +31,10 @@ int main(int argc, char** argv)
 	std::cout << "After:\t";
 	sorter_vector.print_numbers();
 	std::cout << "Time to process a range of " << sorter_vector.getSize() << " elements with std::vector: " << timer << " us.\n";
-	std::cout << "Number of comparisons: " << PmergeMe<std::vector<int>, std::vector<int>::iterator>::getNumComps() << std::endl;
+	
 
 	//trying the same sort with list
-/* 	PmergeMe<std::list<int>, std::list<int>::iterator>	sorter_list;
+	PmergeMe<std::list<int>, std::list<int>::iterator>	sorter_list;
 
 	sorter_list.scan_numbers(argc, argv);
 	gettimeofday(&time_v, NULL);
@@ -43,6 +43,6 @@ int main(int argc, char** argv)
 	gettimeofday(&time_v, NULL);
 	timer = time_v.tv_sec * MILLISEC + time_v.tv_usec - timer;
 	std::cout << "Time to process a range of " << sorter_list.getSize() << " elements with std::list: " << timer << " us.\n";
-	std::cout << "Number of comparisons: " << PmergeMe<std::list<int>, std::list<int>::iterator>::getNumComps() << std::endl;
-	sorter_list.print_numbers(); */
+	std::cout << "Number of comparisons for std::vector:\t" << PmergeMe<std::vector<int>, std::vector<int>::iterator>::getNumComps() << std::endl;
+	std::cout << "Number of comparisons for std::list:\t" << PmergeMe<std::list<int>, std::list<int>::iterator>::getNumComps() << std::endl;
 }
