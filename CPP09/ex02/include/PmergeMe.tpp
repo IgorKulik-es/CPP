@@ -6,7 +6,7 @@
 /*   By: ikulik <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/30 14:24:09 by ikulik            #+#    #+#             */
-/*   Updated: 2025/10/02 20:40:40 by ikulik           ###   ########.fr       */
+/*   Updated: 2025/10/07 13:04:36 by ikulik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -185,9 +185,8 @@ void	PmergeMe<T, Iterator>::insert_tail( T& tail )
 			this->insert_one_pair(tail, distances, i);
 		distances.clear();
 		pairs_left -= step_jacob;
-		step_jacob = jacob;
 		jacob = jacobsthal(++idx_jacob);
-		step_jacob = jacob - step_jacob;
+		step_jacob = jacob - jacobsthal(idx_jacob - 1);
 	}
 }
 
@@ -230,8 +229,8 @@ Iterator	PmergeMe<T, Iterator>::binary_search( Iterator value, Iterator start, I
 	{
 		if (dist == 1)
 		{
-			if (*current > *end)
-				std::advance(end, 1);
+			if (*value > *end)
+				std::advance(end, half_pair);
 			return (end);
 		}
 		return (this->binary_search(value, current, end));
@@ -270,14 +269,13 @@ void	PmergeMe<T, Iterator>::insert_one_pair( T& tail, std::vector<int>& distance
 	std::advance(start, half_pair - 1);
 	end = this->base.begin();
 	std::advance(end, distances[pos - 1] * half_pair - 1);
-	std::cout << "Advancing by " << distances[pos - 1] << " end " << *end << " main size " << this->base.size() << std::endl;
-	//std::cout << "Looking for " << *to_find	<< " within " << *start << " " << *end << std::endl;
 	to_insert = this->binary_search(to_find, start, end);
+	std::cout << "Advancing by " << distances[pos - 1] << " end " << *end << " found " << *to_insert << std::endl;
 	update_tail_pos(distances, (std::distance(this->base.begin(), to_insert) + 1) / half_pair, pos - 1);
-	std::cout << " Found place: " << *to_insert << std::endl;
 	std::advance(to_insert, -half_pair + 1);
 	start = to_find;
 	std::advance(start, -half_pair + 1);
+	std::cout << "Inserting " << *start << " before " << *to_insert << std::endl;
 	move_pair(this->base, to_insert, tail, start, half_pair, this->mode);
 }
 
