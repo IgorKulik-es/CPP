@@ -114,7 +114,7 @@ template <typename T, typename Iterator>
 void	PmergeMe<T, Iterator>::sort_pairs( void )
 {
 	Iterator	iter;
-	Iterator	midle;
+	Iterator	middle;
 	int			num_pairs = this->base.size() / pair_size;
 	int			position = pair_size - 1;
 
@@ -122,14 +122,15 @@ void	PmergeMe<T, Iterator>::sort_pairs( void )
 	{
 		iter = this->base.begin();
 		std::advance(iter, position);
-		midle = iter;
-		std::advance(midle, - half_pair);
+		middle = iter;
+		std::advance(middle, - half_pair);
 		num_comps++;
-		if (*iter < *midle)
+		std::cout << "Comp " << *iter << " " << *middle << "| ";
+		if (*iter < *middle)
 		{
 			std::advance(iter, -pair_size + 1);
-			std::advance(midle, 1);
-			move_pair(this->base, iter, this->base, midle, half_pair);
+			std::advance(middle, 1);
+			move_pair(this->base, iter, this->base, middle, half_pair);
 		}
 		position += pair_size;
 	}
@@ -145,13 +146,10 @@ void	PmergeMe<T, Iterator>::move_pair( T& where, Iterator target, T& other, Iter
 	temp.insert(temp.end(), first, last);
 	other.erase(first, last);
 	std::cout << "First elt " << *(temp.begin()) << "\n";
-	//this->print_numbers();
 	last = temp.end();
 	if (target != where.end())
 		std::cout << "Inserting " << *(temp.begin()) << " before " << *target << "\n";
 	where.insert(target, temp.begin(), last);
-	//this->print_numbers();
-
 }
 
 template <typename T, typename Iterator>
@@ -179,7 +177,7 @@ void	PmergeMe<T, Iterator>::insert_tail( T& tail )
 {
 	int	idx_jacob = 3;
 	int	old_jacob = 1;
-	int	jacob = 1;
+	int	jacob = 3;
 	int	step_jacob = 2;
 	int	pairs_left = tail.size() / half_pair;
 	std::vector<int>	distances;
@@ -188,7 +186,7 @@ void	PmergeMe<T, Iterator>::insert_tail( T& tail )
 	{
 		if (step_jacob > pairs_left)
 			step_jacob = pairs_left;
-		assign_tail_pos(distances, jacob + pairs_left / 2 + pairs_left % 2, step_jacob);
+		assign_tail_pos(distances, old_jacob * 2, step_jacob);
 		for (int i = step_jacob; i > 0; i--)
 			this->insert_one_pair(tail, distances, i);
 		/* else
@@ -228,21 +226,40 @@ Iterator	PmergeMe<T, Iterator>::binary_search( Iterator value, Iterator start, I
 	int			dist;
 
 	dist = std::distance(start, end) / half_pair;
+	if (dist == 0)
+	{
+		num_comps++;
+		std::cout << "Comp1 " << *value << " " << *current << "| ";
+		if (*value > *start)
+		{
+			std::advance(start, 1);
+			if (start != very_end)
+				std::advance(start, half_pair - 1);
+			else
+				std::cout << "hello";
+		}
+		return (start);
+	}
 	std::advance(current, (dist / 2) * half_pair);
 	num_comps++;
+	std::cout << "Comp2 " << *value << " " << *current << "| ";
 	if (*value < *current)
 	{
 		if (dist == 1)
 			return (start);
+		std::advance(current, -half_pair);
 		return (this->binary_search(value, start, current, very_end));
 	}
 	else
 	{
 		if (dist == 1)
 		{
+			num_comps++;
+			std::cout << "Comp3 " << *value << " " << *end << "| ";
 			if (*value > *end)
 			{
 				std::advance(end, 1);
+				std::cout << "very end " << *very_end << std::endl;
 				if (end != very_end)
 					std::advance(end, half_pair - 1);
 				else
@@ -250,6 +267,7 @@ Iterator	PmergeMe<T, Iterator>::binary_search( Iterator value, Iterator start, I
 			}
 			return (end);
 		}
+		std::advance(current, half_pair);
 		return (this->binary_search(value, current, end, very_end));
 	}
 }
@@ -279,6 +297,7 @@ void	PmergeMe<T, Iterator>::insert_one_pair( T& tail, std::vector<int>& distance
 	Iterator	to_insert;
 	Iterator	start;
 	Iterator	end;
+	Iterator	border;
 
 	to_find = tail.begin();
 	std::advance(to_find, pos * half_pair - 1);
@@ -286,10 +305,12 @@ void	PmergeMe<T, Iterator>::insert_one_pair( T& tail, std::vector<int>& distance
 	std::advance(start, half_pair - 1);
 	end = this->base.begin();
 	std::advance(end, (distances[pos - 1]) * half_pair - 1);
+	border = this->base.end();
+	std::advance(border, -(this->base.size() % half_pair));
 	std::cout << "Searching between " << *start << " " << *end << " dist " << (distances[pos - 1]) * half_pair - 1 << " array " << distances[pos - 1] << std::endl;
-	to_insert = this->binary_search(to_find, start, end, this->base.end());
+	to_insert = this->binary_search(to_find, start, end, border);
 	this->update_tail_pos(distances, (std::distance(this->base.begin(), to_insert) + 1) / half_pair, pos - 1);
-	if (to_insert != this->base.end())
+	if (to_insert != border)
 		std::advance(to_insert, -half_pair + 1);
 	start = to_find;
 	std::advance(start, -half_pair + 1);
