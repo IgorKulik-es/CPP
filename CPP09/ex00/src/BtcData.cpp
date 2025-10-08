@@ -6,7 +6,7 @@
 /*   By: ikulik <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/28 10:59:03 by ikulik            #+#    #+#             */
-/*   Updated: 2025/09/28 10:59:03 by ikulik           ###   ########.fr       */
+/*   Updated: 2025/10/08 13:07:53 by ikulik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ bool	BtcData::readCsv( const char* filename)
 		return (EXIT_FAILURE);
 	}
 	std::getline(file, line);
-	line.erase();
+	line.clear();
 	while (std::getline(file, line))
 	{
 		line_stream.str(line);
@@ -70,7 +70,7 @@ bool	BtcData::checkDateFormat( std::string& date )
 	std::string::iterator	iter;
 	int						num_date;
 	std::stringstream		date_stream(date);
-	
+
 	while (isblank(date_stream.peek()))
 		date_stream.get();
 	std::getline(date_stream, format, '-');
@@ -198,19 +198,19 @@ void	BtcData::printOneLine( const std::string& line )
 	std::getline(line_stream, str_value, '|');
 	num_value = checkValue(str_value);
 	if (num_value == VALUE_FAILURE)
-		std::cerr << "Error: bad input =>" << line << std::endl;
+		std::cerr << "Error: bad input => " << line << std::endl;
 	if (num_value == VALUE_FAILURE || num_value == OUT_OF_BOUND)
-		return ;
-	price = this->findClosestPrice(key);
-	if (price == VALUE_FAILURE)
 		return ;
 	str_value.clear();
 	std::getline(line_stream, str_value);
 	if (str_value.length() > 0)
 	{
-		std::cerr << "Error: bad input =>" << line << std::endl;
+		std::cerr << "Error: bad input => " << line << std::endl;
 		return ;
 	}
+	price = this->findClosestPrice(key);
+	if (price == VALUE_FAILURE)
+		return ;
 	std::cout << key << " => " << num_value << " = " << (price * num_value) << std::endl;
 }
 

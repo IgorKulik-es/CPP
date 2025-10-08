@@ -6,7 +6,7 @@
 /*   By: ikulik <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/30 14:24:09 by ikulik            #+#    #+#             */
-/*   Updated: 2025/10/07 20:44:48 by ikulik           ###   ########.fr       */
+/*   Updated: 2025/10/08 12:31:35 by ikulik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -266,7 +266,8 @@ void	PmergeMe<T, Iterator>::insert_one_pair( T& tail, std::vector<int>& distance
 	std::advance(to_find, pos * half_pair - 1);
 	std::advance(start, half_pair - 1);
 	std::advance(end, (distances[pos - 1]) * half_pair - 1);
-	std::advance(very_end, -(this->base.size() % half_pair));	to_insert = this->binary_search(to_find, start, end, very_end);
+	std::advance(very_end, -(this->base.size() % half_pair));
+	to_insert = this->binary_search(to_find, start, end, very_end);
 	this->update_tail_pos(distances, (std::distance(this->base.begin(), to_insert) + 1) / half_pair, pos - 1);
 	if (to_insert != very_end)
 		std::advance(to_insert, -half_pair + 1);
